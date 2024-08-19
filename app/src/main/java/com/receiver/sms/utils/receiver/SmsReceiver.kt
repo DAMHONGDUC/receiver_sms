@@ -1,4 +1,4 @@
-package com.receiver.sms
+package com.receiver.sms.utils.receiver
 
 import android.content.BroadcastReceiver
 import android.content.Context
@@ -6,6 +6,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.telephony.SmsMessage
 import android.util.Log
+import com.receiver.sms.utils.AppConstants
 
 private val LOG_TAG = "SmsReceiverLOG"
 
@@ -17,12 +18,12 @@ class SmsReceiver : BroadcastReceiver() {
             return
         }
 
-        if (intent.action.equals("android.provider.Telephony.SMS_RECEIVED")) {
+        if (intent.action.equals(AppConstants.SMS_RECEIVER_INTENT)) {
             val bundle: Bundle? = intent.extras
             if (bundle != null) {
                 try {
                     // Retrieve the SMS pdus array using getSerializable
-                    val pdus = bundle.getSerializable("pdus") as Array<*>
+                    val pdus = bundle.getSerializable(AppConstants.SMS_SERIABLE_KEY) as Array<*>
 
                     for (pdu in pdus) {
                         // Create an SmsMessage from the PDU (Protocol Data Unit)

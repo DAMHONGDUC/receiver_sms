@@ -1,4 +1,4 @@
-package com.receiver.sms
+package com.receiver.sms.presentation.screens.activity
 
 import android.Manifest
 import android.content.IntentFilter
@@ -13,6 +13,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.navigation.compose.rememberNavController
 import com.receiver.sms.navigation.NavGraph
+import com.receiver.sms.utils.receiver.SmsReceiver
 import com.receiver.sms.utils.resources.AppColors
 import com.receiver.sms.utils.theme.AppTheme
 
