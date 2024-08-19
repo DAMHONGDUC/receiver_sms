@@ -8,10 +8,12 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.Surface
-import androidx.compose.material.Text
 import androidx.compose.ui.Modifier
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.navigation.compose.rememberNavController
+import com.receiver.sms.navigation.NavGraph
+import com.receiver.sms.utils.resources.AppColors
 import com.receiver.sms.utils.theme.AppTheme
 
 class MainActivity : ComponentActivity() {
@@ -33,11 +35,12 @@ class MainActivity : ComponentActivity() {
         registerSMSReceiver()
 
         setContent {
+            val navController = rememberNavController()
             AppTheme {
                 Surface(
-                    modifier = Modifier.fillMaxSize(),
+                    modifier = Modifier.fillMaxSize(), color = AppColors.surface
                 ) {
-                    Text("hello")
+                    NavGraph(navController = navController)
                 }
             }
         }
