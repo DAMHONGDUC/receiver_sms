@@ -7,15 +7,12 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
+import androidx.compose.material.Surface
+import androidx.compose.material.Text
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import com.receiver.sms.ui.theme.Receiver_smsTheme
+import com.receiver.sms.utils.theme.AppTheme
 
 class MainActivity : ComponentActivity() {
     private lateinit var smsReceiver: SmsReceiver
@@ -36,11 +33,9 @@ class MainActivity : ComponentActivity() {
         registerSMSReceiver()
 
         setContent {
-            Receiver_smsTheme {
-                // A surface container using the 'background' color from the theme
+            AppTheme {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
                 ) {
                     Text("hello")
                 }
@@ -88,18 +83,3 @@ class MainActivity : ComponentActivity() {
 
 }
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    Receiver_smsTheme {
-        Greeting("Android")
-    }
-}
