@@ -14,7 +14,9 @@ import com.receiver.sms.navigation.NavGraph
 import com.receiver.sms.utils.receiver.SmsReceiver
 import com.receiver.sms.utils.resources.AppColors
 import com.receiver.sms.utils.theme.AppTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     private lateinit var smsReceiver: SmsReceiver
     private val SMS_PERMISSIONS_REQUEST_CODE = 1
@@ -22,7 +24,8 @@ class MainActivity : ComponentActivity() {
         Manifest.permission.READ_SMS,
         Manifest.permission.RECEIVE_SMS,
     )
-//    @Inject
+
+    //    @Inject
 //    lateinit var useCase: UseCase
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

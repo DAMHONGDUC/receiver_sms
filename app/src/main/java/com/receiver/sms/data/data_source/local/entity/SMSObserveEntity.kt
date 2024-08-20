@@ -7,8 +7,8 @@ import com.receiver.sms.utils.SMSDatabaseConstants
 
 @Entity(tableName = SMSDatabaseConstants.SMS_OBSERVE_TABLE)
 data class SMSObserveEntity(
-    @PrimaryKey
-    val id: Int,
+    @PrimaryKey(autoGenerate = true)
+    val id: Int = 0,
     val sender: String,
     val message: String,
     val body: String,

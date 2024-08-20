@@ -6,6 +6,7 @@ import androidx.room.Room
 import com.receiver.sms.App
 import com.receiver.sms.data.data_source.local.LocalDatabase
 import com.receiver.sms.utils.SMSDatabaseConstants
+import com.receiver.sms.utils.view_model.ResultHandler
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -33,5 +34,11 @@ object AppModule {
             .allowMainThreadQueries()
             .fallbackToDestructiveMigration()
             .build()
+    }
+
+    @Provides
+    @Singleton
+    fun provideResultHandler(): ResultHandler {
+        return ResultHandler()
     }
 }
