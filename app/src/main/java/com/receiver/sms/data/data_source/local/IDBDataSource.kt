@@ -1,12 +1,12 @@
 package com.receiver.sms.data.data_source.local
 
-import com.receiver.sms.data.data_source.local.entity.ObserveSMSEntity
-import com.receiver.sms.domain.model.ObserveSMSModel
+import com.receiver.sms.data.data_source.local.entity.SMSObserveEntity
+import com.receiver.sms.domain.model.SMSObserveModel
 
 interface IDBDataSource {
-    suspend fun getAllObserveSMS(): List<ObserveSMSModel>
+    suspend fun getAllSMSObserve(): List<SMSObserveModel>
 
-    suspend fun insertObserveSMS(observeSMSEntity: ObserveSMSEntity): Boolean
+    suspend fun insertSMSObserve(smsObserveEntity: SMSObserveEntity): Boolean
 
 }
 

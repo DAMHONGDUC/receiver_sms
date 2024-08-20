@@ -1,6 +1,6 @@
 package com.receiver.sms.domain.model
 
-data class ObserveSMSModel(
+data class SMSObserveModel(
     val id: Int,
     val sender: String,
     val message: String,
