@@ -7,6 +7,5 @@ object AppConstants {
 
 object SMSDatabaseConstants {
     const val DB_NAME = "DB_SMS_Database"
-    const val SMS_TABLE = "SMS_TABLE"
-    const val LIVE_SMS_TABLE = "LIVE_SMS_TABLE"
+    const val OBSERVE_SMS_TABLE = "SMS_TABLE"
 }

@@ -2,10 +2,10 @@ package com.receiver.sms.data.data_source.local
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import com.receiver.sms.data.data_source.local.entity.SMSEntity
+import com.receiver.sms.data.data_source.local.entity.ObserveSMSEntity
 
 @Database(
-    entities = [SMSEntity::class],
+    entities = [ObserveSMSEntity::class],
     version = 1,
     exportSchema = false
 )

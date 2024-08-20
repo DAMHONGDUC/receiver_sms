@@ -1,13 +1,12 @@
 package com.receiver.sms.data.data_source.local
 
-import androidx.lifecycle.LiveData
-import com.receiver.sms.data.data_source.local.entity.SMSEntity
-import com.receiver.sms.domain.model.SMSModel
+import com.receiver.sms.data.data_source.local.entity.ObserveSMSEntity
+import com.receiver.sms.domain.model.ObserveSMSModel
 
 interface IDBDataSource {
-    suspend fun getAllSMS(): LiveData<SMSModel?>
+    suspend fun getAllObserveSMS(): List<ObserveSMSModel>
 
-    suspend fun insertSMS(smsEntity: SMSEntity): Boolean
+    suspend fun insertObserveSMS(observeSMSEntity: ObserveSMSEntity): Boolean
 
 }
 
