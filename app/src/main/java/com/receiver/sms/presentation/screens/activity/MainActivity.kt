@@ -2,14 +2,12 @@ package com.receiver.sms.presentation.screens.activity
 
 import android.Manifest
 import android.content.IntentFilter
-import android.content.pm.PackageManager
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.Surface
 import androidx.compose.ui.Modifier
-import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.navigation.compose.rememberNavController
 import com.receiver.sms.navigation.NavGraph
@@ -24,17 +22,12 @@ class MainActivity : ComponentActivity() {
         Manifest.permission.READ_SMS,
         Manifest.permission.RECEIVE_SMS,
     )
-
-    override fun onResume() {
-        super.onResume()
-        requestSmsPermissions()
-    }
-
+//    @Inject
+//    lateinit var useCase: UseCase
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         // register receiver
         registerSMSReceiver()
-
         setContent {
             val navController = rememberNavController()
             AppTheme {
@@ -47,26 +40,25 @@ class MainActivity : ComponentActivity() {
         }
     }
 
-    private fun requestSmsPermissions() {
-        if (ContextCompat.checkSelfPermission(
-                this,
-                Manifest.permission.RECEIVE_SMS
-            ) != PackageManager.PERMISSION_GRANTED ||
-            ContextCompat.checkSelfPermission(
-                this,
-                Manifest.permission.READ_SMS
-            ) != PackageManager.PERMISSION_GRANTED
-        ) {
-            ActivityCompat.requestPermissions(
-                this,
-                PERMISSIONS_STORAGE,
-                SMS_PERMISSIONS_REQUEST_CODE
-            )
-        } else {
-            // Permissions already granted, you can proceed with your SMS-related functionality
-        }
-    }
-
+    //    private fun requestSmsPermissions() {
+//        if (ContextCompat.checkSelfPermission(
+//                this,
+//                Manifest.permission.RECEIVE_SMS
+//            ) != PackageManager.PERMISSION_GRANTED ||
+//            ContextCompat.checkSelfPermission(
+//                this,
+//                Manifest.permission.READ_SMS
+//            ) != PackageManager.PERMISSION_GRANTED
+//        ) {
+//            ActivityCompat.requestPermissions(
+//                this,
+//                PERMISSIONS_STORAGE,
+//                SMS_PERMISSIONS_REQUEST_CODE
+//            )
+//        } else {
+//            // Permissions already granted, you can proceed with your SMS-related functionality
+//        }
+//    }
     private fun registerSMSReceiver() {
         smsReceiver = SmsReceiver()
 

@@ -1,7 +1,11 @@
 package com.receiver.sms.core.di
 
+import android.app.Application
 import android.content.Context
+import androidx.room.Room
 import com.receiver.sms.App
+import com.receiver.sms.data.data_source.local.LocalDatabase
+import com.receiver.sms.utils.SMSDatabaseConstants
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -16,5 +20,18 @@ object AppModule {
     @Provides
     fun provideApplication(@ApplicationContext app: Context): App {
         return app as App
+    }
+
+    @Provides
+    @Singleton
+    fun provideLocalDB(app: Application): LocalDatabase {
+        return Room.databaseBuilder(
+            app,
+            LocalDatabase::class.java,
+            SMSDatabaseConstants.DB_NAME
+        )
+            .allowMainThreadQueries()
+            .fallbackToDestructiveMigration()
+            .build()
     }
 }
