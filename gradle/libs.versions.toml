@@ -23,6 +23,7 @@ hiltNavigationCompose = "1.2.0"
 ksp = "2.0.0-1.0.24"
 roomRuntime = "2.6.1"
 runtimeLivedata = "1.6.8"
+sonner = "0.3.8"
 
 [libraries]
 accompanist-systemuicontroller = { module = "com.google.accompanist:accompanist-systemuicontroller", version.ref = "accompanistSystemuicontroller" }
@@ -67,6 +68,7 @@ androidx-room-ktx = { module = "androidx.room:room-ktx", version.ref = "roomRunt
 androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "roomRuntime" }
 
 logger = { group = "com.orhanobut", name = "logger", version = "2.2.0" }
+sonner = { module = "io.github.dokar3:sonner", version.ref = "sonner" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

@@ -26,7 +26,7 @@ class HomeViewModel @Inject constructor(
         getAllSMSObserve()
     }
 
-    fun createSMSObserve() {
+    fun createSMSObserve(actionAfterCreated: () -> Unit) {
         viewModelScope.launch {
             val status = useCase.insertSMSObserveUC(
                 smsObserveEntity = SMSObserveEntity(
@@ -38,10 +38,10 @@ class HomeViewModel @Inject constructor(
             )
 
             if (status) {
+                actionAfterCreated()
                 getAllSMSObserve()
             }
         }
-
     }
 
     fun getAllSMSObserve() {

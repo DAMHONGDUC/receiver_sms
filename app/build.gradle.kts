@@ -145,6 +145,7 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.accompanist.systemuicontroller)
+    implementation(libs.sonner)
     // local storage
     implementation(libs.androidx.room.runtime)
     ksp(libs.androidx.room.compiler)

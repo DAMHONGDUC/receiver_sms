@@ -13,17 +13,27 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.dokar.sonner.ToastType
+import com.receiver.sms.domain.model.ToastMsgModel
 import com.receiver.sms.presentation.components.app_container.AppContainer
+import com.receiver.sms.presentation.screens.main.MainViewModel
 import com.receiver.sms.utils.view_model.ViewModelState
 
 private val LOG_TAG = "HomeScreenLOG"
 
 @Composable
-fun HomeScreen(homeViewModel: HomeViewModel = hiltViewModel()) {
+fun HomeScreen(homeViewModel: HomeViewModel = hiltViewModel(), mainVM: MainViewModel) {
     val listSMSObserver = homeViewModel.listSMSObserver.collectAsState().value
 
     fun createSMSObserve() {
-        homeViewModel.createSMSObserve()
+        homeViewModel.createSMSObserve(actionAfterCreated = {
+            mainVM.setToast(
+                ToastMsgModel(
+                    msg = "Create observer Success!",
+                    type = ToastType.Success
+                )
+            )
+        })
     }
 
     Scaffold { paddingValues ->
