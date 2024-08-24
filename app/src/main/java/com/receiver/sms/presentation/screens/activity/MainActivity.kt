@@ -8,7 +8,7 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
-//    private lateinit var smsReceiver: SmsReceiver
+    //    private lateinit var smsReceiver: SmsReceiver
 //    private val SMS_PERMISSIONS_REQUEST_CODE = 1
 //    private val PERMISSIONS_STORAGE = arrayOf<String>(
 //        Manifest.permission.READ_SMS,
@@ -24,7 +24,7 @@ class MainActivity : ComponentActivity() {
             MainScreen()
         }
     }
-    //    private fun requestSmsPermissions() {
+//        private fun requestSmsPermissions() {
 //        if (ContextCompat.checkSelfPermission(
 //                this,
 //                Manifest.permission.RECEIVE_SMS

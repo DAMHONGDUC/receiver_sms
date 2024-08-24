@@ -15,6 +15,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.dokar.sonner.ToastType
 import com.receiver.sms.domain.model.ToastMsgModel
 import com.receiver.sms.presentation.components.main_container.MainContainer
+import com.receiver.sms.presentation.screens.home.components.RequestSMSPermissionModal
 import com.receiver.sms.presentation.screens.main.MainViewModel
 import com.receiver.sms.utils.view_model.ViewModelState
 
@@ -36,40 +37,42 @@ fun HomeScreen(homeViewModel: HomeViewModel = hiltViewModel(), mainVM: MainViewM
     }
 
     MainContainer {
-        Column {
-            Button(onClick = { createSMSObserve() }) {
-                Text("Create observe")
-            }
-            Text(text = "HomeScreen")
-
-            when (listSMSObserver) {
-                is ViewModelState.Loading -> {
-                    CircularProgressIndicator(
-                        modifier = Modifier
-                            .fillMaxSize()
-                            .wrapContentSize(
-                                Alignment.Center
-                            )
-                    )
+        RequestSMSPermissionModal {
+            Column {
+                Button(onClick = { createSMSObserve() }) {
+                    Text("Create observe")
                 }
+                Text(text = "HomeScreen")
 
-                is ViewModelState.Success -> {
-                    LazyColumn(modifier = Modifier.fillMaxSize()) {
-                        items(listSMSObserver.data.count()) { index ->
-                            Text(listSMSObserver.data[index].sender)
+                when (listSMSObserver) {
+                    is ViewModelState.Loading -> {
+                        CircularProgressIndicator(
+                            modifier = Modifier
+                                .fillMaxSize()
+                                .wrapContentSize(
+                                    Alignment.Center
+                                )
+                        )
+                    }
+
+                    is ViewModelState.Success -> {
+                        LazyColumn(modifier = Modifier.fillMaxSize()) {
+                            items(listSMSObserver.data.count()) { index ->
+                                Text(listSMSObserver.data[index].sender)
+                            }
                         }
                     }
-                }
 
-                is ViewModelState.Error -> {
-                    Text(
-                        "error"
+                    is ViewModelState.Error -> {
+                        Text(
+                            "error"
+                        )
+                    }
+
+                    ViewModelState.Empty -> Text(
+                        "Empty"
                     )
                 }
-
-                ViewModelState.Empty -> Text(
-                    "Empty"
-                )
             }
         }
     }

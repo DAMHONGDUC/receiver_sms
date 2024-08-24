@@ -24,8 +24,10 @@ ksp = "2.0.0-1.0.24"
 roomRuntime = "2.6.1"
 runtimeLivedata = "1.6.8"
 sonner = "0.3.8"
+accompanistPermissions = "0.34.0"
 
 [libraries]
+accompanist-permissions = { module = "com.google.accompanist:accompanist-permissions", version.ref = "accompanistPermissions" }
 accompanist-systemuicontroller = { module = "com.google.accompanist:accompanist-systemuicontroller", version.ref = "accompanistSystemuicontroller" }
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 
