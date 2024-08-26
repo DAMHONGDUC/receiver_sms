@@ -44,7 +44,7 @@ class HomeViewModel @Inject constructor(
         }
     }
 
-    fun getAllSMSObserve() {
+    private fun getAllSMSObserve() {
         viewModelScope.launch {
             val result = resultHandler.execute { useCase.getAllSMSObserveUC() }
             _listSMSObserver.value = result

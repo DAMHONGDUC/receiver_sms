@@ -11,6 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.dokar.sonner.ToastType
 import com.receiver.sms.domain.model.ToastMsgModel
@@ -36,7 +37,7 @@ fun HomeScreen(homeViewModel: HomeViewModel = hiltViewModel(), mainVM: MainViewM
         })
     }
 
-    MainContainer {
+    MainContainer(paddingVertical = 0.dp) {
         RequestSMSPermissionModal {
             Column {
                 Button(onClick = { createSMSObserve() }) {

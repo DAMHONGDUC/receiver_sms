@@ -1,6 +1,7 @@
 package com.receiver.sms.utils.permission_controller
 
 import android.Manifest
+import android.app.Activity
 import android.content.Context
 import android.content.pm.PackageManager
 import androidx.core.app.ActivityCompat
@@ -8,7 +9,7 @@ import androidx.core.content.ContextCompat
 
 class PermissionController {
     companion object {
-        fun checkSMSReceiverPermission(context: Context): Boolean {
+        fun checkSMSReceiverIsGrant(context: Context): Boolean {
             return ContextCompat.checkSelfPermission(
                 context,
                 Manifest.permission.RECEIVE_SMS
@@ -16,7 +17,13 @@ class PermissionController {
         }
 
         fun requestSMSReceiverPermission(context: Context) {
-            
+            ActivityCompat.requestPermissions(
+                context as Activity,
+                arrayOf<String>(
+                    Manifest.permission.RECEIVE_SMS
+                ),
+                1
+            )
         }
     }
 }

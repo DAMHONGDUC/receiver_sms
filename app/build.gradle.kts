@@ -77,7 +77,7 @@ android {
         create("dev") {
             dimension = "environment"
             versionNameSuffix = "-dev"
-            resValue("string", "app_name", "Warehouse Barcode Dev")
+            resValue("string", "app_name", "SMS Receiver Call API Dev")
             // Load properties from dev.properties
             val devProperties = loadProperties(file(devPropertiesPath))
             buildConfigField("String", "ENV", "\"${devProperties["ENV"]}\"")
@@ -85,7 +85,7 @@ android {
         }
         create("prod") {
             dimension = "environment"
-            resValue("string", "app_name", "Warehouse Barcode")
+            resValue("string", "app_name", "SMS Receiver Call API")
             // Load properties from prod.properties
             val prodProperties = loadProperties(file(prodPropertiesPath))
             buildConfigField("String", "ENV", "\"${prodProperties["ENV"]}\"")

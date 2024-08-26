@@ -24,7 +24,7 @@ ksp = "2.0.0-1.0.24"
 roomRuntime = "2.6.1"
 runtimeLivedata = "1.6.8"
 sonner = "0.3.8"
-accompanistPermissions = "0.34.0"
+accompanistPermissions = "0.35.2-beta"
 
 [libraries]
 accompanist-permissions = { module = "com.google.accompanist:accompanist-permissions", version.ref = "accompanistPermissions" }

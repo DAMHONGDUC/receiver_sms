@@ -1,5 +1,7 @@
 package com.receiver.sms.presentation.screens.home.components
 
+import android.Manifest
+import androidx.compose.foundation.layout.Column
 import androidx.compose.material.Button
 import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.ExperimentalMaterialApi
@@ -9,12 +11,15 @@ import androidx.compose.material.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import com.google.accompanist.permissions.ExperimentalPermissionsApi
-import com.google.accompanist.permissions.isGranted
 import com.google.accompanist.permissions.rememberPermissionState
 import com.receiver.sms.presentation.components.custom_bottom_sheet.CustomBottomSheet
 import com.receiver.sms.presentation.components.spacing.VerticalSpacing
+import com.receiver.sms.utils.permission_controller.PermissionController
 import com.receiver.sms.utils.resources.AppColors
 import com.receiver.sms.utils.resources.AppTextStyle
 import kotlinx.coroutines.launch
@@ -24,49 +29,50 @@ private val LOG_TAG = "RequestSMSPermissionModalLOG"
 @OptIn(ExperimentalMaterialApi::class, ExperimentalPermissionsApi::class)
 @Composable
 fun RequestSMSPermissionModal(content: @Composable () -> Unit) {
-    val sheetState =
-        rememberModalBottomSheetState(ModalBottomSheetValue.Hidden)
-    val smsReceiverPermissionState = rememberPermissionState(
-        android.Manifest.permission.RECEIVE_SMS
-    )
+    val sheetState = rememberModalBottomSheetState(ModalBottomSheetValue.Hidden)
+    val smsReceiverPermissionState =
+        rememberPermissionState(Manifest.permission.RECEIVE_SMS)
     val scope = rememberCoroutineScope()
+    val context = LocalContext.current
 
     suspend fun requestSMSReceiverPermission() {
         sheetState.hide()
-        smsReceiverPermissionState.launchPermissionRequest()
+        PermissionController.requestSMSReceiverPermission(context)
     }
 
-    LaunchedEffect(Unit) {
-        if (!smsReceiverPermissionState.status.isGranted) {
+    LaunchedEffect(smsReceiverPermissionState.status) {
+        if (!PermissionController.checkSMSReceiverIsGrant(context)) {
             sheetState.show()
         }
     }
-
-
-
+    
     CustomBottomSheet(
         sheetState = sheetState,
         body = { content() },
         sheetContent = {
-            VerticalSpacing()
-            Text(
-                text = "strings.permission.overlayPermission",
-                style = AppTextStyle().base
-            )
-            VerticalSpacing(value = 5.dp)
-            Button(
-                onClick = {
-                    scope.launch {
-                        requestSMSReceiverPermission()
-                    }
-                },
-                colors = ButtonDefaults.buttonColors(backgroundColor = AppColors.primary)
-            ) {
+            Column {
+                VerticalSpacing()
                 Text(
-                    " strings.permission.openSetting",
-                    style = AppTextStyle().base.copy(color = AppColors.white)
+                    text = "The SMS receiver call API app needs access to SMS receiver permission to retrieve SMS information.",
+                    style = AppTextStyle().base
                 )
+                VerticalSpacing(value = 5.dp)
+                Button(
+                    modifier = Modifier.align(Alignment.CenterHorizontally),
+                    onClick = {
+                        scope.launch {
+                            requestSMSReceiverPermission()
+                        }
+                    },
+                    colors = ButtonDefaults.buttonColors(backgroundColor = AppColors.primary)
+                ) {
+                    Text(
+                        "Accept",
+                        style = AppTextStyle().base.copy(color = AppColors.white)
+                    )
+                }
             }
         },
     )
 }
+

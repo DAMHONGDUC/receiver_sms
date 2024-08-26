@@ -1,8 +1,10 @@
 package com.receiver.sms.presentation.components.custom_bottom_sheet
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -32,15 +34,18 @@ fun CustomBottomSheet(
         sheetState = sheetState,
         sheetContent = {
             Column(
+                horizontalAlignment = Alignment.Start,
+                verticalArrangement = Arrangement.Center,
                 modifier = Modifier
+                    .fillMaxWidth()
                     .padding(AppBoxModel().mainPadding()),
-                horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 Box(
                     modifier = Modifier
                         .size(width = 40.dp, height = 7.dp)
                         .clip(RoundedCornerShape(10.dp))
                         .background(color = AppColors.topControl)
+                        .align(Alignment.CenterHorizontally)
                 )
                 sheetContent()
             }
