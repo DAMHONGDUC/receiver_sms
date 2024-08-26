@@ -7,7 +7,7 @@ import com.receiver.sms.data.data_source.local.entity.toDomain
 import com.receiver.sms.domain.model.SMSObserveModel
 import javax.inject.Inject
 
-class DBSMSRepository @Inject constructor(
+class DBRepository @Inject constructor(
     private val dao: DAO,
 ) : IDBDataSource {
     override suspend fun getAllSMSObserve(): List<SMSObserveModel> {

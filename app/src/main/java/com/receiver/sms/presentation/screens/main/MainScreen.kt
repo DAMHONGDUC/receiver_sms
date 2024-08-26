@@ -35,7 +35,7 @@ fun MainScreen(
     lateinit var smsReceiver: SmsReceiver
 
     fun registerSMSReceiver() {
-        smsReceiver = SmsReceiver()
+        smsReceiver = SmsReceiver(mainVM.useCase)
 
         ContextCompat.registerReceiver(
             context,

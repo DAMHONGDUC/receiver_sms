@@ -6,11 +6,12 @@ import android.content.Intent
 import android.os.Bundle
 import android.telephony.SmsMessage
 import android.util.Log
+import com.receiver.sms.domain.use_case.UseCase
 import com.receiver.sms.utils.AppConstants
 
 private val LOG_TAG = "SmsReceiverLOG"
 
-class SmsReceiver : BroadcastReceiver() {
+class SmsReceiver(private val useCase: UseCase) : BroadcastReceiver() {
     override fun onReceive(
         context: Context?, intent: Intent?
     ) {
