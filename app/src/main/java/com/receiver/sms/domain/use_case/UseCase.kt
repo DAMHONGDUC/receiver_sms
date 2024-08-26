@@ -3,5 +3,6 @@ package com.receiver.sms.domain.use_case
 data class UseCase(
     val insertSMSObserveUC: InsertSMSObserveUseCase,
     val getAllSMSObserveUC: GetAllSMSObserveUseCase,
+    val callAPIAfterReceiveSMSUseCase: CallAPIAfterReceiveSMSUseCase,
 )
 
