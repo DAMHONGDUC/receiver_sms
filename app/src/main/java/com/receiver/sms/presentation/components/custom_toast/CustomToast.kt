@@ -9,7 +9,7 @@ import com.dokar.sonner.ToasterState
 fun CustomToast(state: ToasterState) {
     Toaster(
         state = state,
-        showCloseButton = false,
+        showCloseButton = true,
         alignment = Alignment.TopCenter,
         richColors = true,
         darkTheme = true,

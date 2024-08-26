@@ -14,6 +14,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.compose.LocalLifecycleOwner
 import androidx.navigation.compose.rememberNavController
 import com.dokar.sonner.rememberToasterState
 import com.receiver.sms.navigation.NavGraph
@@ -22,10 +23,11 @@ import com.receiver.sms.utils.AppConstants
 import com.receiver.sms.utils.receiver.SmsReceiver
 import com.receiver.sms.utils.resources.AppColors
 import com.receiver.sms.utils.theme.AppTheme
+import kotlin.time.Duration.Companion.milliseconds
 
 @Composable
 fun MainScreen(
-    lifecycleOwner: LifecycleOwner = androidx.lifecycle.compose.LocalLifecycleOwner.current,
+    lifecycleOwner: LifecycleOwner = LocalLifecycleOwner.current,
     mainVM: MainViewModel = hiltViewModel(),
 ) {
     val navController = rememberNavController()
@@ -35,7 +37,7 @@ fun MainScreen(
     lateinit var smsReceiver: SmsReceiver
 
     fun registerSMSReceiver() {
-        smsReceiver = SmsReceiver(mainVM.useCase)
+        smsReceiver = SmsReceiver()
 
         ContextCompat.registerReceiver(
             context,
@@ -73,7 +75,7 @@ fun MainScreen(
 
     LaunchedEffect(toastMsgModel) {
         if (toastMsgModel != null) {
-            toaster.show(toastMsgModel.msg, type = toastMsgModel.type)
+            toaster.show(toastMsgModel.msg, type = toastMsgModel.type, duration = 2000.milliseconds)
             mainVM.clearToast()
         }
     }
