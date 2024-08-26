@@ -1,5 +1,6 @@
 package com.receiver.sms.presentation.screens.main
 
+import android.content.BroadcastReceiver
 import android.content.IntentFilter
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.Surface
@@ -34,7 +35,7 @@ fun MainScreen(
     val context = LocalContext.current
     val toaster = rememberToasterState()
     val toastMsgModel = mainVM.toastMsgModel.collectAsState().value
-    lateinit var smsReceiver: SmsReceiver
+    lateinit var smsReceiver: BroadcastReceiver
 
     fun registerSMSReceiver() {
         smsReceiver = SmsReceiver()
