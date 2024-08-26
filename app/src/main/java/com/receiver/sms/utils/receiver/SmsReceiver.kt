@@ -6,7 +6,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.telephony.SmsMessage
 import android.util.Log
-import com.receiver.sms.data.data_source.local.entity.ReceiverSMSEntity
+import com.receiver.sms.domain.model.ReceiverSMSModel
 import com.receiver.sms.domain.use_case.UseCase
 import com.receiver.sms.utils.AppConstants
 import com.receiver.sms.utils.Helper
@@ -41,8 +41,8 @@ class SmsReceiver :
                         val messageBody = smsMessage.messageBody
 
                         CoroutineScope(Dispatchers.IO).launch {
-                            useCase.insertReceiverSMSUC(
-                                ReceiverSMSEntity(
+                            useCase.callAPIAfterReceiveSMSUC(
+                                ReceiverSMSModel(
                                     sender = sender,
                                     body = messageBody,
                                     timestamp = Helper.getFormattedTimeStamp()

@@ -1,11 +1,9 @@
 package com.receiver.sms.data.data_source.local
 
-import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.receiver.sms.data.data_source.local.entity.ReceiverSMSEntity
 import com.receiver.sms.data.data_source.local.entity.SMSObserveEntity
 import com.receiver.sms.utils.SMSDatabaseConstants
 
@@ -17,9 +15,4 @@ interface DAO {
     @Insert(entity = SMSObserveEntity::class, onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertSMSObserve(smsObserveEntity: SMSObserveEntity)
 
-    @Query("SELECT * FROM ${SMSDatabaseConstants.RECEIVER_SMS_TABLE} WHERE id = 1")
-    fun getReceiverSMS(): LiveData<ReceiverSMSEntity>
-
-    @Insert(entity = ReceiverSMSEntity::class, onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertReceiverSMS(receiverSMSEntity: ReceiverSMSEntity)
 }
