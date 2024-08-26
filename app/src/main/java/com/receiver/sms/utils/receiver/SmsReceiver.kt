@@ -6,8 +6,13 @@ import android.content.Intent
 import android.os.Bundle
 import android.telephony.SmsMessage
 import android.util.Log
+import com.receiver.sms.domain.model.ReceiverSMSModel
 import com.receiver.sms.domain.use_case.UseCase
 import com.receiver.sms.utils.AppConstants
+import com.receiver.sms.utils.Helper
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 private val LOG_TAG = "SmsReceiverLOG"
 
@@ -23,20 +28,23 @@ class SmsReceiver(private val useCase: UseCase) : BroadcastReceiver() {
             val bundle: Bundle? = intent.extras
             if (bundle != null) {
                 try {
-                    // Retrieve the SMS pdus array using getSerializable
                     val pdus = bundle.getSerializable(AppConstants.SMS_SERIABLE_KEY) as Array<*>
 
                     for (pdu in pdus) {
-                        // Create an SmsMessage from the PDU (Protocol Data Unit)
                         val smsMessage = SmsMessage.createFromPdu(pdu as ByteArray)
-                        // Extract details from the SmsMessage
                         val sender = smsMessage.displayOriginatingAddress
                         val messageBody = smsMessage.messageBody
-                        // Log the sender and message content (for debugging purposes)
-                        Log.d(LOG_TAG, "Sender: $sender")
-                        Log.d(LOG_TAG, "Message: $messageBody")
-                        // You can also handle the message as needed here
-                        // e.g., send to a server, store in a database, etc.
+
+                        CoroutineScope(Dispatchers.IO).launch {
+                            useCase.callAPIAfterReceiveSMSUseCase(
+                                ReceiverSMSModel(
+                                    id = Helper.generateTimeBasedId(),
+                                    sender = sender,
+                                    body = messageBody
+                                )
+                            )
+                        }
+
                     }
                 } catch (e: Exception) {
                     Log.e(LOG_TAG, "Exception: ${e.message}")

@@ -14,5 +14,9 @@ class Helper {
             context.startActivity(intent)
         }
 
+        fun generateTimeBasedId(): String {
+            return System.currentTimeMillis().toString()
+        }
+
     }
 }
