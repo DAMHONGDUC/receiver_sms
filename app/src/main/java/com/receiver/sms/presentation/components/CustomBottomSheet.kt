@@ -1,4 +1,4 @@
-package com.receiver.sms.presentation.components.custom_bottom_sheet
+package com.receiver.sms.presentation.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement

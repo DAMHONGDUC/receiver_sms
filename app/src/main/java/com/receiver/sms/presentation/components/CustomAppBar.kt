@@ -1,5 +1,6 @@
-package com.receiver.sms.presentation.components.custom_app_bar
+package com.receiver.sms.presentation.components
 
+import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.Icon
@@ -22,7 +23,8 @@ fun CustomAppBar(
     enableBack: Boolean = true,
     title: String,
     bg: Color = AppColors.primary,
-    textColor: Color = AppColors.white
+    textColor: Color = AppColors.white,
+    topBarAction: @Composable() (RowScope.() -> Unit) = {}
 ) {
     TopAppBar(
         modifier = Modifier.height(50.dp),
@@ -48,5 +50,6 @@ fun CustomAppBar(
                 )
             )
         },
+        actions = topBarAction
     )
 }

@@ -17,7 +17,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import com.google.accompanist.permissions.ExperimentalPermissionsApi
 import com.google.accompanist.permissions.rememberPermissionState
-import com.receiver.sms.presentation.components.custom_bottom_sheet.CustomBottomSheet
+import com.receiver.sms.presentation.components.CustomBottomSheet
 import com.receiver.sms.presentation.components.spacing.VerticalSpacing
 import com.receiver.sms.utils.permission_controller.PermissionController
 import com.receiver.sms.utils.resources.AppColors
@@ -45,7 +45,7 @@ fun RequestSMSPermissionModal(content: @Composable () -> Unit) {
             sheetState.show()
         }
     }
-    
+
     CustomBottomSheet(
         sheetState = sheetState,
         body = { content() },

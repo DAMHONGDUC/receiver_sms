@@ -19,7 +19,7 @@ import androidx.lifecycle.compose.LocalLifecycleOwner
 import androidx.navigation.compose.rememberNavController
 import com.dokar.sonner.rememberToasterState
 import com.receiver.sms.navigation.NavGraph
-import com.receiver.sms.presentation.components.custom_toast.CustomToast
+import com.receiver.sms.presentation.components.CustomToast
 import com.receiver.sms.utils.AppConstants
 import com.receiver.sms.utils.receiver.SmsReceiver
 import com.receiver.sms.utils.resources.AppColors
