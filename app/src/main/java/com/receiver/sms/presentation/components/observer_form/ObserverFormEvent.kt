@@ -9,4 +9,5 @@ data class ObserverFormState(
     // error
     val observerSenderError: String? = null,
     val bodyError: String? = null,
+    val endPointError: String? = null,
 )

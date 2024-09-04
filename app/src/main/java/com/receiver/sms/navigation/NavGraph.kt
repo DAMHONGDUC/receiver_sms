@@ -86,7 +86,8 @@ private fun addCreateObserverScreen(
 ) {
     navGraphBuilder.composable(route = NavRoute.CreateObserverScreen.route) {
         CreateObserverScreen(
-            mainVM = mainVM
+            mainVM = mainVM,
+            onBack = { navController.popBackStack() }
         )
     }
 }

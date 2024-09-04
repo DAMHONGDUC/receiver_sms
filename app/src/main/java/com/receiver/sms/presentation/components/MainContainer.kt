@@ -9,13 +9,12 @@ import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.Dp
-import androidx.compose.ui.unit.dp
 import com.receiver.sms.utils.resources.AppBoxModel
 import com.receiver.sms.utils.resources.AppColors
 
 @Composable
 fun MainContainer(
-    paddingHorizontal: Dp = 0.dp,
+    paddingHorizontal: Dp = AppBoxModel().haftMainPadding(),
     paddingVertical: Dp = AppBoxModel().haftMainPadding(),
     topBarTitle: String = "",
     onBack: () -> Unit = {},
@@ -37,7 +36,10 @@ fun MainContainer(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(padding)
-                .padding(horizontal = paddingHorizontal, vertical = paddingVertical)
+                .padding(
+                    horizontal = paddingHorizontal,
+                    vertical = paddingVertical
+                )
                 .background(color = AppColors.background)
         ) {
             content()

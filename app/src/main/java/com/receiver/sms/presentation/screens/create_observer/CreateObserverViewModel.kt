@@ -24,9 +24,18 @@ class CreateObserverViewModel @Inject constructor(
                 state = state.copy(body = event.body)
             }
 
-            is ObserverFormEvent.EndPointChanged -> TODO()
-            is ObserverFormEvent.HeaderChanged -> TODO()
-            is ObserverFormEvent.ParamsChanged -> TODO()
+            is ObserverFormEvent.EndPointChanged -> {
+                state = state.copy(endPoint = event.endPoint)
+            }
+
+            is ObserverFormEvent.HeaderChanged -> {
+                state = state.copy(header = event.header)
+            }
+
+            is ObserverFormEvent.ParamsChanged -> {
+                state = state.copy(params = event.params)
+            }
+
             is ObserverFormEvent.Submit -> {
                 state = state.copy(observerSenderError = "error")
             }
