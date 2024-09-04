@@ -23,7 +23,11 @@ import com.receiver.sms.utils.view_model.ViewModelState
 private val LOG_TAG = "HomeScreenLOG"
 
 @Composable
-fun HomeScreen(homeViewModel: HomeViewModel = hiltViewModel(), mainVM: MainViewModel) {
+fun HomeScreen(
+    homeViewModel: HomeViewModel = hiltViewModel(),
+    mainVM: MainViewModel,
+    navToCreateObserverScreen: () -> Unit
+) {
     val listSMSObserver = homeViewModel.listSMSObserver.collectAsState().value
 
     fun createSMSObserve() {
@@ -41,10 +45,10 @@ fun HomeScreen(homeViewModel: HomeViewModel = hiltViewModel(), mainVM: MainViewM
     MainContainer(
         paddingVertical = 0.dp,
         enableBack = false,
-        ) {
+    ) {
         RequestSMSPermissionModal {
             Column {
-                Button(onClick = { createSMSObserve() }) {
+                Button(onClick = navToCreateObserverScreen) {
                     Text("Create observe")
                 }
                 Text(text = "HomeScreen")

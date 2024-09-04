@@ -8,6 +8,7 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.receiver.sms.presentation.screens.create_observer.CreateObserverScreen
 import com.receiver.sms.presentation.screens.home.HomeScreen
 import com.receiver.sms.presentation.screens.main.MainViewModel
 import com.receiver.sms.presentation.screens.setting.SettingScreen
@@ -45,19 +46,23 @@ fun NavGraph(navController: NavHostController, mainVM: MainViewModel) {
             this,
             mainVM = mainVM
         )
+        addCreateObserverScreen(
+            navController,
+            this,
+            mainVM = mainVM
+        )
     }
 }
 
 private fun addHomeScreen(
     navController: NavHostController,
     navGraphBuilder: NavGraphBuilder,
-    actionWhenNav: () -> Unit = {},
     mainVM: MainViewModel
 ) {
     navGraphBuilder.composable(route = NavRoute.HomeScreen.route) {
-        actionWhenNav()
         HomeScreen(
-            mainVM = mainVM
+            mainVM = mainVM,
+            navToCreateObserverScreen = { navController.navigate(NavRoute.CreateObserverScreen.route) }
         )
     }
 }
@@ -65,7 +70,6 @@ private fun addHomeScreen(
 private fun addSettingScreen(
     navController: NavHostController,
     navGraphBuilder: NavGraphBuilder,
-    actionWhenNav: () -> Unit = {},
     mainVM: MainViewModel
 ) {
     navGraphBuilder.composable(route = NavRoute.SettingScreen.route) {
@@ -75,3 +79,14 @@ private fun addSettingScreen(
     }
 }
 
+private fun addCreateObserverScreen(
+    navController: NavHostController,
+    navGraphBuilder: NavGraphBuilder,
+    mainVM: MainViewModel
+) {
+    navGraphBuilder.composable(route = NavRoute.CreateObserverScreen.route) {
+        CreateObserverScreen(
+            mainVM = mainVM
+        )
+    }
+}
