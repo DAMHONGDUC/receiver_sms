@@ -6,4 +6,5 @@ sealed class ObserverFormEvent {
     data class EndPointChanged(val endPoint: String) : ObserverFormEvent()
     data class HeaderChanged(val header: String) : ObserverFormEvent()
     data class ParamsChanged(val params: String) : ObserverFormEvent()
+    object Submit : ObserverFormEvent()
 }

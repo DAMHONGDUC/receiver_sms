@@ -9,6 +9,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.receiver.sms.presentation.components.spacing.VerticalSpacing
 
 @Composable
 fun AppTextField(
@@ -33,6 +34,7 @@ fun AppTextField(
             isError = isError,
             modifier = Modifier.fillMaxWidth()
         )
+        VerticalSpacing()
         if (isError && errorMessage != null) {
             Text(
                 text = errorMessage,

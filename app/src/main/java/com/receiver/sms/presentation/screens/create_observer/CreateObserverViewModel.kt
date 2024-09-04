@@ -27,6 +27,9 @@ class CreateObserverViewModel @Inject constructor(
             is ObserverFormEvent.EndPointChanged -> TODO()
             is ObserverFormEvent.HeaderChanged -> TODO()
             is ObserverFormEvent.ParamsChanged -> TODO()
+            is ObserverFormEvent.Submit -> {
+                state = state.copy(observerSenderError = "error")
+            }
         }
     }
 }
