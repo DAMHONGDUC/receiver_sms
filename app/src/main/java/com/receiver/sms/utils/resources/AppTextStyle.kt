@@ -8,22 +8,24 @@ import androidx.compose.ui.unit.sp
 import com.receiver.sms.R
 
 class AppTextStyle {
-    val CustomFontFamily = FontFamily(
-        Font(R.font.poppins_bold, FontWeight.Bold),
-        Font(R.font.poppins_medium, FontWeight.Medium),
-        Font(R.font.poppins_medium, FontWeight.Normal),
-        Font(R.font.poppins_semi_bold, FontWeight.SemiBold)
+    private val CustomFontFamily = FontFamily(
+        Font(R.font.roboto_black_900, FontWeight.Black),
+        Font(R.font.roboto_bold_700, FontWeight.Bold),
+        Font(R.font.roboto_medium_500, FontWeight.Medium),
+        Font(R.font.roboto_regular_400, FontWeight.Normal),
+        Font(R.font.roboto_light_300, FontWeight.Light),
+        Font(R.font.roboto_thin_100, FontWeight.Thin),
     )
     val xLarge: TextStyle = TextStyle(
         fontFamily = CustomFontFamily,
         fontWeight = FontWeight.Bold,
-        fontSize = 20.sp,
+        fontSize = 21.sp,
         color = AppColors.textColor
     )
     val large: TextStyle = TextStyle(
         fontFamily = CustomFontFamily,
         fontWeight = FontWeight.Bold,
-        fontSize = 19.sp,
+        fontSize = 20.sp,
         color = AppColors.textColor
     )
     val medium: TextStyle = TextStyle(

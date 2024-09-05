@@ -1,4 +1,4 @@
-package com.receiver.sms.presentation.components.custom_toast
+package com.receiver.sms.presentation.components
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
