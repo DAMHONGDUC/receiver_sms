@@ -12,7 +12,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import com.receiver.sms.utils.resources.AppBoxModel
 import com.receiver.sms.utils.resources.AppColors
 import com.receiver.sms.utils.resources.AppTextStyle
 
@@ -40,7 +39,7 @@ fun PrimaryButton(
     ) {
         Text(
             text = text,
-            modifier = Modifier.padding(vertical = AppBoxModel().haftMainPadding()),
+            modifier = Modifier.padding(vertical = 5.dp),
             style = AppTextStyle().medium.copy(
                 color = AppColors.white,
                 fontWeight = FontWeight.SemiBold
