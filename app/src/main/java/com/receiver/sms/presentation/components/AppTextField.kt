@@ -103,7 +103,7 @@ fun AppTextField(
                             tint = AppColors.white,
                             modifier = Modifier
                                 .size(AppIconSize().base())
-                                .padding(3.dp)
+                                .padding(2.5.dp)
                         )
                     }
 

@@ -23,7 +23,7 @@ fun CustomAppBar(
     enableBack: Boolean = true,
     title: String,
     bg: Color = AppColors.primary,
-    textColor: Color = AppColors.white,
+    mainColor: Color = AppColors.white,
     topBarAction: @Composable() (RowScope.() -> Unit) = {}
 ) {
     TopAppBar(
@@ -36,17 +36,17 @@ fun CustomAppBar(
                         modifier = Modifier.size(AppIconSize().base()),
                         imageVector = Icons.Filled.ArrowBackIosNew,
                         contentDescription = "backIcon",
-                        tint = AppColors.white
+                        tint = mainColor
                     )
                 }
             }
         } else null,
-        elevation = 5.dp,
+        elevation = 4.dp,
         title = {
             Text(
                 title,
                 style = AppTextStyle().xLarge.copy(
-                    color = textColor
+                    color = mainColor
                 )
             )
         },

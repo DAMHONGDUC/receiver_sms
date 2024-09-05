@@ -18,13 +18,13 @@ class AppTextStyle {
     )
     val xLarge: TextStyle = TextStyle(
         fontFamily = CustomFontFamily,
-        fontWeight = FontWeight.Black,
+        fontWeight = FontWeight.Bold,
         fontSize = 21.sp,
         color = AppColors.textColor
     )
     val large: TextStyle = TextStyle(
         fontFamily = CustomFontFamily,
-        fontWeight = FontWeight.Black,
+        fontWeight = FontWeight.Bold,
         fontSize = 20.sp,
         color = AppColors.textColor
     )

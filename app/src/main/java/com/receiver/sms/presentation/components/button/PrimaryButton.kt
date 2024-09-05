@@ -9,6 +9,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.receiver.sms.utils.resources.AppBoxModel
@@ -40,7 +41,10 @@ fun PrimaryButton(
         Text(
             text = text,
             modifier = Modifier.padding(vertical = AppBoxModel().haftMainPadding()),
-            style = AppTextStyle().medium.copy(color = AppColors.white)
+            style = AppTextStyle().medium.copy(
+                color = AppColors.white,
+                fontWeight = FontWeight.SemiBold
+            )
         )
     }
 }

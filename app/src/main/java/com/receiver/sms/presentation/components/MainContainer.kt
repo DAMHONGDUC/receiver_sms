@@ -1,6 +1,5 @@
 package com.receiver.sms.presentation.components
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -21,9 +20,12 @@ fun MainContainer(
     content: @Composable () -> Unit,
 ) {
     Scaffold(
+        backgroundColor = AppColors.background,
         modifier = Modifier.fillMaxSize(),
         topBar = {
             CustomAppBar(
+                bg = AppColors.background,
+                mainColor = AppColors.textColor,
                 title = topBarTitle,
                 onBack = onBack,
                 enableBack = enableBack
@@ -34,7 +36,6 @@ fun MainContainer(
                 .fillMaxSize()
                 .padding(padding)
                 .padding(horizontal = paddingHorizontal, vertical = paddingVertical)
-                .background(color = AppColors.background)
         ) {
             content()
         }
