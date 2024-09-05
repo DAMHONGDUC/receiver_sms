@@ -43,8 +43,9 @@ fun HomeScreen(
 
 
     MainContainer(
-        enableBack = false,
         paddingVertical = 0.dp,
+        topBarTitle = "Home",
+        enableBack = false,
     ) {
         RequestSMSPermissionModal {
             Column {
