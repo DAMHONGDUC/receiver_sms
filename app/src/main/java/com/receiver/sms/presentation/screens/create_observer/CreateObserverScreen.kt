@@ -21,7 +21,7 @@ fun CreateObserverScreen(
 ) {
     MainContainer(
         onBack = onBack,
-        ) {
+    ) {
         Column {
             ObserverForm(state = createObserverVM.state, createObserverVM = createObserverVM)
             VerticalSpacing()

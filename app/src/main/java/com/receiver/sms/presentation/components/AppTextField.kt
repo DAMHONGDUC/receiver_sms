@@ -3,12 +3,27 @@ package com.receiver.sms.presentation.components
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.MaterialTheme
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.KeyboardActions
+import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material.Icon
+import androidx.compose.material.IconButton
 import androidx.compose.material.OutlinedTextField
 import androidx.compose.material.Text
+import androidx.compose.material.TextFieldDefaults
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Close
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Shape
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.unit.dp
+import com.receiver.sms.presentation.components.spacing.VerticalSpacing
+import com.receiver.sms.utils.resources.AppColors
+import com.receiver.sms.utils.resources.AppIconSize
+import com.receiver.sms.utils.resources.AppTextStyle
 
 @Composable
 fun AppTextField(
@@ -20,26 +35,70 @@ fun AppTextField(
     leadingIcon: @Composable (() -> Unit)? = null,
     trailingIcon: @Composable (() -> Unit)? = null,
     isError: Boolean = false,
-    errorMessage: String? = null
+    errorMessage: String? = null,
+    shape: Shape = RoundedCornerShape(10.dp),
+    keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
+    onNext: (() -> Unit)? = null
 ) {
+    val mainTextStyle: TextStyle = AppTextStyle().base
+
     Column(modifier = modifier) {
         OutlinedTextField(
             value = value,
             onValueChange = onValueChange,
-            label = { Text(text = label) },
-            placeholder = { Text(text = placeholder) },
+            label = {
+                Text(
+                    text = label,
+                )
+            },
+            textStyle = mainTextStyle,
+            placeholder = {
+                Text(
+                    text = placeholder,
+                )
+            },
             leadingIcon = leadingIcon,
-            trailingIcon = trailingIcon,
+            trailingIcon = trailingIcon ?: {
+                if (value.isNotEmpty()) {
+                    IconButton(
+                        onClick = { onValueChange("") }) {
+                        Icon(
+                            imageVector = Icons.Default.Close,
+                            contentDescription = "Clear",
+                            modifier = Modifier.size(AppIconSize().small())
+                        )
+                    }
+                }
+            },
             isError = isError,
-            modifier = Modifier.fillMaxWidth()
+            shape = shape,
+            modifier = Modifier
+                .fillMaxWidth(),
+            colors = TextFieldDefaults.outlinedTextFieldColors(
+                focusedBorderColor = AppColors.gray,
+                unfocusedBorderColor = AppColors.gray,
+                errorBorderColor = AppColors.error,
+                focusedLabelColor = AppColors.primary,
+                unfocusedLabelColor = AppColors.gray
+            ),
+            keyboardOptions = keyboardOptions.copy(
+                imeAction = ImeAction.Next
+            ),
+            keyboardActions = KeyboardActions(
+                onNext = {
+                    onNext?.invoke()
+                }
+            )
         )
-        if (isError && errorMessage != null) {
+        if (isError && !errorMessage.isNullOrEmpty()) {
             Text(
                 text = errorMessage,
-                color = MaterialTheme.colors.error,
-                style = MaterialTheme.typography.caption,
-                modifier = Modifier.padding(start = 16.dp, top = 4.dp)
+                color = AppColors.error,
+                style = AppTextStyle().small,
+                modifier = Modifier.padding(start = 4.dp, top = 2.dp)
             )
+        } else {
+            VerticalSpacing()
         }
     }
 }
