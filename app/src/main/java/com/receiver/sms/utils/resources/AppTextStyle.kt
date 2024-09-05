@@ -30,7 +30,7 @@ class AppTextStyle {
     )
     val medium: TextStyle = TextStyle(
         fontFamily = CustomFontFamily,
-        fontWeight = FontWeight.Bold,
+        fontWeight = FontWeight.Normal,
         fontSize = 18.sp,
         color = AppColors.textColor
     )

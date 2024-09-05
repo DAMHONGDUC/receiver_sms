@@ -16,9 +16,9 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.ImeAction
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.receiver.sms.presentation.components.spacing.VerticalSpacing
 import com.receiver.sms.utils.resources.AppBoxModel
@@ -31,25 +31,33 @@ fun AppTextField(
     value: String,
     onValueChange: (String) -> Unit,
     placeholder: String = "",
+    label: String = "",
     modifier: Modifier = Modifier,
     leadingIcon: @Composable (() -> Unit)? = null,
     trailingIcon: @Composable (() -> Unit)? = null,
     isError: Boolean = false,
     errorMessage: String? = null,
-    shape: Shape = RoundedCornerShape(10.dp),
+    borderRadius: Dp = 12.dp,
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
     onNext: (() -> Unit)? = null
 ) {
-    val mainTextStyle: TextStyle = AppTextStyle().base
+    val mainTextStyle: TextStyle = AppTextStyle().medium
 
     Column(modifier = modifier) {
         OutlinedTextField(
+            singleLine = false,
             value = value,
             onValueChange = onValueChange,
             textStyle = mainTextStyle,
             placeholder = {
                 Text(
                     text = placeholder,
+                    style = mainTextStyle.copy(color = AppColors.gray)
+                )
+            },
+            label = {
+                Text(
+                    text = label,
                 )
             },
             leadingIcon = leadingIcon,
@@ -66,13 +74,15 @@ fun AppTextField(
                 }
             },
             isError = isError,
-            shape = shape,
+            shape = RoundedCornerShape(borderRadius),
             modifier = Modifier
                 .fillMaxWidth(),
             colors = TextFieldDefaults.outlinedTextFieldColors(
                 focusedBorderColor = AppColors.gray,
                 unfocusedBorderColor = AppColors.gray,
                 errorBorderColor = AppColors.error,
+                focusedLabelColor = AppColors.gray,
+                unfocusedLabelColor = AppColors.gray,
             ),
             keyboardOptions = keyboardOptions.copy(
                 imeAction = ImeAction.Next
