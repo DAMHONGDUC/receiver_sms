@@ -20,7 +20,6 @@ import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.unit.dp
-import com.receiver.sms.presentation.components.spacing.VerticalSpacing
 import com.receiver.sms.utils.resources.AppColors
 import com.receiver.sms.utils.resources.AppIconSize
 import com.receiver.sms.utils.resources.AppTextStyle
@@ -95,10 +94,8 @@ fun AppTextField(
                 text = errorMessage,
                 color = AppColors.error,
                 style = AppTextStyle().small,
-                modifier = Modifier.padding(start = 4.dp, top = 2.dp)
+                modifier = Modifier.padding(start = 4.dp, top = 4.dp)
             )
-        } else {
-            VerticalSpacing()
         }
     }
 }

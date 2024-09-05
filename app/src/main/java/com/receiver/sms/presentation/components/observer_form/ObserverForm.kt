@@ -1,13 +1,15 @@
 package com.receiver.sms.presentation.components.observer_form
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.runtime.Composable
 import com.receiver.sms.presentation.components.AppTextField
 import com.receiver.sms.presentation.screens.create_observer.CreateObserverViewModel
+import com.receiver.sms.utils.resources.AppBoxModel
 
 @Composable
 fun ObserverForm(state: ObserverFormState, createObserverVM: CreateObserverViewModel) {
-    Column {
+    Column(verticalArrangement = Arrangement.spacedBy(AppBoxModel().spacing())) {
         AppTextField(
             value = state.observerSender,
             onValueChange = {
