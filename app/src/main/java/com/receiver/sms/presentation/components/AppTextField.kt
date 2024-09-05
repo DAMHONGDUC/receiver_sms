@@ -20,6 +20,8 @@ import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.unit.dp
+import com.receiver.sms.presentation.components.spacing.VerticalSpacing
+import com.receiver.sms.utils.resources.AppBoxModel
 import com.receiver.sms.utils.resources.AppColors
 import com.receiver.sms.utils.resources.AppIconSize
 import com.receiver.sms.utils.resources.AppTextStyle
@@ -28,7 +30,6 @@ import com.receiver.sms.utils.resources.AppTextStyle
 fun AppTextField(
     value: String,
     onValueChange: (String) -> Unit,
-    label: String,
     placeholder: String = "",
     modifier: Modifier = Modifier,
     leadingIcon: @Composable (() -> Unit)? = null,
@@ -45,11 +46,6 @@ fun AppTextField(
         OutlinedTextField(
             value = value,
             onValueChange = onValueChange,
-            label = {
-                Text(
-                    text = label,
-                )
-            },
             textStyle = mainTextStyle,
             placeholder = {
                 Text(
@@ -77,8 +73,6 @@ fun AppTextField(
                 focusedBorderColor = AppColors.gray,
                 unfocusedBorderColor = AppColors.gray,
                 errorBorderColor = AppColors.error,
-                focusedLabelColor = AppColors.primary,
-                unfocusedLabelColor = AppColors.gray
             ),
             keyboardOptions = keyboardOptions.copy(
                 imeAction = ImeAction.Next
@@ -96,6 +90,9 @@ fun AppTextField(
                 style = AppTextStyle().small,
                 modifier = Modifier.padding(start = 4.dp, top = 4.dp)
             )
+            VerticalSpacing()
+        } else {
+            VerticalSpacing(value = AppBoxModel().spacing() * 2)
         }
     }
 }
