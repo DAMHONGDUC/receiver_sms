@@ -1,8 +1,8 @@
 package com.receiver.sms.presentation.screens.home
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.receiver.sms.data.data_source.local.entity.SMSObserveEntity
 import com.receiver.sms.domain.model.SMSObserveModel
 import com.receiver.sms.domain.use_case.UseCase
 import com.receiver.sms.utils.view_model.ResultHandler
@@ -12,6 +12,8 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
+
+private val LOG_TAG = "HomeViewModelLOG"
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(
@@ -26,28 +28,14 @@ class HomeViewModel @Inject constructor(
         getAllSMSObserve()
     }
 
-    fun createSMSObserve(actionAfterCreated: () -> Unit) {
-        viewModelScope.launch {
-            val status = useCase.insertSMSObserveUC(
-                smsObserveEntity = SMSObserveEntity(
-                    sender = "Hong Duc",
-                    endpoint = "Hello",
-                    body = "body",
-                    header = "Header"
-                )
-            )
-
-            if (status) {
-                actionAfterCreated()
-                getAllSMSObserve()
+    fun getAllSMSObserve() {
+        try {
+            viewModelScope.launch {
+                val result = resultHandler.execute { useCase.getAllSMSObserveUC() }
+                _listSMSObserver.value = result
             }
-        }
-    }
-
-    private fun getAllSMSObserve() {
-        viewModelScope.launch {
-            val result = resultHandler.execute { useCase.getAllSMSObserveUC() }
-            _listSMSObserver.value = result
+        } catch (e: Exception) {
+            Log.e(LOG_TAG, e.toString())
         }
 
     }

@@ -61,7 +61,7 @@ class CreateObserverViewModel @Inject constructor(
         }
     }
 
-    fun onSubmit(actionAfterCreated: (ToastMsgModel) -> Unit) {
+    fun onSubmit(onSuccess: () -> Unit, showResult: (ToastMsgModel) -> Unit) {
         if (onValidateAll()) {
             viewModelScope.launch {
                 var toastMsgModel = ToastMsgModel(
@@ -79,6 +79,8 @@ class CreateObserverViewModel @Inject constructor(
                         )
                     )
 
+                    onSuccess()
+
                 } catch (e: Exception) {
                     toastMsgModel = ToastMsgModel(
                         msg = "Create observer Failed!",
@@ -86,7 +88,7 @@ class CreateObserverViewModel @Inject constructor(
                     )
                 }
 
-                actionAfterCreated(toastMsgModel)
+                showResult(toastMsgModel)
             }
         }
     }

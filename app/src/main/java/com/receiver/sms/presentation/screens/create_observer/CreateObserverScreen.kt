@@ -31,9 +31,14 @@ fun CreateObserverScreen(
             ObserverForm(state = createObserverVM.state, createObserverVM = createObserverVM)
             PrimaryButton(
                 onClick = {
-                    createObserverVM.onSubmit { toastMsgModel ->
-                        mainVM.setToast(toastMsgModel)
-                    }
+                    createObserverVM.onSubmit(
+                        onSuccess = {
+                            onBack()
+                        },
+                        showResult = { toastMsgModel ->
+                            mainVM.setToast(toastMsgModel)
+                        }
+                    )
                 },
                 text = "Submit"
             )
