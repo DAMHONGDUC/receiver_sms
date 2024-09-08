@@ -21,6 +21,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
@@ -42,7 +43,8 @@ fun AppTextField(
     errorMessage: String? = null,
     borderRadius: Dp = 12.dp,
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
-    onNext: (() -> Unit)? = null
+    onNext: (() -> Unit)? = null,
+    title: String? = null
 ) {
     val mainTextStyle: TextStyle = AppTextStyle().base
     val modifierBorder: Modifier = if (isError) Modifier.border(
@@ -52,6 +54,10 @@ fun AppTextField(
     ) else Modifier
 
     Column(modifier = modifier) {
+        if (title != null) {
+            Text(title, style = AppTextStyle().small.copy(fontWeight = FontWeight.SemiBold))
+            VerticalSpacing(value = 3.dp)
+        }
         Box(
             modifier = modifierBorder
                 .fillMaxWidth()

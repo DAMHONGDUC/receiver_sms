@@ -18,6 +18,7 @@ fun ObserverForm(state: ObserverFormState, createObserverVM: CreateObserverViewM
             isError = !state.observerSenderError.isNullOrEmpty(),
             errorMessage = state.observerSenderError,
             placeholder = "Enter your sender",
+            title = "Observer sender"
         )
         AppTextField(
             value = state.endPoint,
@@ -29,6 +30,7 @@ fun ObserverForm(state: ObserverFormState, createObserverVM: CreateObserverViewM
             isError = !state.observerSenderError.isNullOrEmpty(),
             errorMessage = state.observerSenderError,
             placeholder = "Enter your endpoint",
+            title = "Endpoint"
         )
         AppTextField(
             value = state.body,
@@ -40,6 +42,7 @@ fun ObserverForm(state: ObserverFormState, createObserverVM: CreateObserverViewM
             isError = !state.observerSenderError.isNullOrEmpty(),
             errorMessage = state.observerSenderError,
             placeholder = "Enter your body",
+            title = "Body"
         )
     }
 }

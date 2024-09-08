@@ -19,7 +19,7 @@ fun NavGraph(navController: NavHostController, mainVM: MainViewModel) {
 
     NavHost(
         navController = navController,
-        startDestination = NavRoute.HomeScreen.route,
+        startDestination = NavRoute.CreateObserverScreen.route,
         enterTransition = {
             slideInHorizontally { it }
         },
