@@ -19,6 +19,7 @@ class AppColors private constructor() {
         val white = Color.White
         val red = Color.Red
         val gray = Color.Gray
+        val black = Color.Black
 
         //
         val error = Color.Red

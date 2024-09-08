@@ -37,8 +37,16 @@ class CreateObserverViewModel @Inject constructor(
             }
 
             is ObserverFormEvent.Submit -> {
-                state = state.copy(observerSenderError = "error")
+                onSubmit()
             }
+        }
+    }
+
+    private fun onSubmit() {
+        // validate observer sender
+        if (validate.isEmpty(state.observerSender)) {
+            state = state.copy(observerSenderError = "Observer Sender must not empty")
+          
         }
     }
 }

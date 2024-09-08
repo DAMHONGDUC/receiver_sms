@@ -11,7 +11,6 @@ import com.receiver.sms.presentation.components.MainContainer
 import com.receiver.sms.presentation.components.button.PrimaryButton
 import com.receiver.sms.presentation.components.observer_form.ObserverForm
 import com.receiver.sms.presentation.components.observer_form.ObserverFormEvent
-import com.receiver.sms.presentation.components.spacing.VerticalSpacing
 import com.receiver.sms.presentation.screens.main.MainViewModel
 
 @Composable
@@ -31,7 +30,6 @@ fun CreateObserverScreen(
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             ObserverForm(state = createObserverVM.state, createObserverVM = createObserverVM)
-            VerticalSpacing()
             PrimaryButton(
                 onClick = {
                     createObserverVM.onEvent(ObserverFormEvent.Submit)

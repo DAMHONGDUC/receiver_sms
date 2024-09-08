@@ -2,7 +2,6 @@ package com.receiver.sms.presentation.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -88,15 +87,12 @@ fun AppTextField(
                 )
 
                 if (value.isNotEmpty()) {
-                    Box(
+                    Pressable(
                         modifier = Modifier
                             .size(AppIconSize().small())
                             .clip(RoundedCornerShape(50))
-                            .background(AppColors.gray)
-                            .clickable {
-                                onValueChange("")
-                            }
-                    ) {
+                            .background(AppColors.gray),
+                        onClick = { onValueChange("") }) {
                         Icon(
                             imageVector = Icons.Default.Close,
                             contentDescription = "Clear text",
