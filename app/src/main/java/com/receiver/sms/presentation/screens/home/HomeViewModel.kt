@@ -31,7 +31,7 @@ class HomeViewModel @Inject constructor(
             val status = useCase.insertSMSObserveUC(
                 smsObserveEntity = SMSObserveEntity(
                     sender = "Hong Duc",
-                    message = "Hello",
+                    endpoint = "Hello",
                     body = "body",
                     header = "Header"
                 )

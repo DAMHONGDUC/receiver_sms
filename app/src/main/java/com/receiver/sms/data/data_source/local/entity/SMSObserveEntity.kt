@@ -10,7 +10,7 @@ data class SMSObserveEntity(
     @PrimaryKey(autoGenerate = true)
     val id: Int = 0,
     val sender: String,
-    val message: String,
+    val endpoint: String,
     val body: String,
     val header: String,
 )
@@ -19,7 +19,7 @@ fun SMSObserveEntity.toDomain(): SMSObserveModel {
     return SMSObserveModel(
         id = this.id,
         sender = this.sender,
-        message = this.message,
+        endpoint = this.endpoint,
         body = this.body,
         header = this.header,
     )
