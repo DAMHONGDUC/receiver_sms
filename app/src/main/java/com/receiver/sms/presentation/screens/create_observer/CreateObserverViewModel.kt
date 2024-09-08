@@ -16,6 +16,8 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+private val LOG_TAG = "CreateObserverViewModelLOG"
+
 @HiltViewModel
 class CreateObserverViewModel @Inject constructor(
     private val useCase: UseCase,
@@ -59,31 +61,34 @@ class CreateObserverViewModel @Inject constructor(
         }
     }
 
-    fun onSubmit(actionAfterCreated: (ToastMsgModel) -> Unit) {
+    fun onSubmit(onSuccess: () -> Unit, showResult: (ToastMsgModel) -> Unit) {
         if (onValidateAll()) {
             viewModelScope.launch {
-                val status = useCase.insertSMSObserveUC(
-                    smsObserveEntity = SMSObserveEntity(
-                        sender = "Hong Duc",
-                        message = "Hello",
-                        body = "body",
-                        header = "Header"
-                    )
-                )
-                // show noti
                 var toastMsgModel = ToastMsgModel(
                     msg = "Create observer Success!",
                     type = ToastType.Success
                 )
 
-                if (!status) {
+                try {
+                    useCase.insertSMSObserveUC(
+                        smsObserveEntity = SMSObserveEntity(
+                            sender = state.observerSender,
+                            endpoint = state.endPoint,
+                            body = state.body,
+                            header = state.header ?: ""
+                        )
+                    )
+
+                    onSuccess()
+
+                } catch (e: Exception) {
                     toastMsgModel = ToastMsgModel(
                         msg = "Create observer Failed!",
                         type = ToastType.Error
                     )
                 }
 
-                actionAfterCreated(toastMsgModel)
+                showResult(toastMsgModel)
             }
         }
     }
