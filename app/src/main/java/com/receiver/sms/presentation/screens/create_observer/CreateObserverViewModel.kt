@@ -4,14 +4,23 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.dokar.sonner.ToastType
+import com.receiver.sms.data.data_source.local.entity.SMSObserveEntity
+import com.receiver.sms.domain.model.ToastMsgModel
+import com.receiver.sms.domain.use_case.UseCase
 import com.receiver.sms.presentation.components.observer_form.ObserverFormEvent
 import com.receiver.sms.presentation.components.observer_form.ObserverFormState
 import com.receiver.sms.utils.ValidationWithRegex
+import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+@HiltViewModel
 class CreateObserverViewModel @Inject constructor(
-    private val validate: ValidationWithRegex = ValidationWithRegex(),
+    private val useCase: UseCase,
 ) : ViewModel() {
+    private val validate: ValidationWithRegex = ValidationWithRegex()
     var state by mutableStateOf(ObserverFormState())
 
     fun onEvent(event: ObserverFormEvent) {
@@ -47,16 +56,35 @@ class CreateObserverViewModel @Inject constructor(
             is ObserverFormEvent.ParamsChanged -> {
                 state = state.copy(params = event.params)
             }
-
-            is ObserverFormEvent.Submit -> {
-                onSubmit()
-            }
         }
     }
 
-    private fun onSubmit() {
+    fun onSubmit(actionAfterCreated: (ToastMsgModel) -> Unit) {
         if (onValidateAll()) {
-            // submit
+            viewModelScope.launch {
+                val status = useCase.insertSMSObserveUC(
+                    smsObserveEntity = SMSObserveEntity(
+                        sender = "Hong Duc",
+                        message = "Hello",
+                        body = "body",
+                        header = "Header"
+                    )
+                )
+                // show noti
+                var toastMsgModel = ToastMsgModel(
+                    msg = "Create observer Success!",
+                    type = ToastType.Success
+                )
+
+                if (!status) {
+                    toastMsgModel = ToastMsgModel(
+                        msg = "Create observer Failed!",
+                        type = ToastType.Error
+                    )
+                }
+
+                actionAfterCreated(toastMsgModel)
+            }
         }
     }
 
