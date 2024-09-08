@@ -12,6 +12,7 @@ import androidx.compose.material.icons.filled.ArrowBackIosNew
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.receiver.sms.utils.resources.AppColors
 import com.receiver.sms.utils.resources.AppIconSize
@@ -24,6 +25,7 @@ fun CustomAppBar(
     title: String,
     bg: Color = AppColors.primary,
     mainColor: Color = AppColors.white,
+    elevation: Dp = 4.dp,
     topBarAction: @Composable() (RowScope.() -> Unit) = {}
 ) {
     TopAppBar(
@@ -41,7 +43,7 @@ fun CustomAppBar(
                 }
             }
         } else null,
-        elevation = 4.dp,
+        elevation = elevation,
         title = {
             Text(
                 title,

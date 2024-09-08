@@ -17,12 +17,13 @@ fun MainContainer(
     topBarTitle: String = "",
     onBack: () -> Unit = {},
     enableBack: Boolean = true,
+    customTopBar: @Composable() (() -> Unit)? = null,
     content: @Composable () -> Unit,
 ) {
     Scaffold(
         backgroundColor = AppColors.background,
         modifier = Modifier.fillMaxSize(),
-        topBar = {
+        topBar = customTopBar ?: {
             CustomAppBar(
                 bg = AppColors.background,
                 mainColor = AppColors.textColor,

@@ -8,8 +8,8 @@ import androidx.compose.material.ripple.rememberRipple
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Shape
 import com.receiver.sms.utils.resources.AppColors
 
 @Composable
@@ -17,11 +17,12 @@ fun Pressable(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
     rippleColor: Color = AppColors.black,
+    clip: Shape = CircleShape,
     content: @Composable () -> Unit
 ) {
     Box(
         modifier = modifier
-            .clip(CircleShape)
+//            .clip(clip)
             .clickable(
                 onClick = onClick,
                 indication = rememberRipple(bounded = true, color = rippleColor), // Ripple effect
