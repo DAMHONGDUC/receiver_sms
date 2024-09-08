@@ -18,8 +18,8 @@ fun ObserverForm(state: ObserverFormState, createObserverVM: CreateObserverViewM
             isError = !state.observerSenderError.isNullOrEmpty(),
             errorMessage = state.observerSenderError,
             placeholder = "Enter your sender",
-            title = "Observer sender"
-        )
+            title = "Observer sender",
+            )
         AppTextField(
             value = state.endPoint,
             onValueChange = {
