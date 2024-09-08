@@ -2,6 +2,9 @@ package com.receiver.sms.presentation.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -24,7 +27,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
@@ -53,19 +55,26 @@ fun AppTextField(
 ) {
     val mainTextStyle: TextStyle = AppTextStyle().base
     val focusRequester = remember { FocusRequester() }
+    val interactionSource = remember { MutableInteractionSource() }
+
 
     Column {
         Row(
             modifier = Modifier
                 .fillMaxWidth()
+                .clickable(
+                    indication = null,
+                    interactionSource = interactionSource,
+                    onClick = { focusRequester.requestFocus() }
+                )
                 .border(
                     width = 1.dp,
-                    color = if (isError) AppColors.error else AppColors.gray,
+                    color = if (isError) AppColors.error else AppColors.border,
                     shape = RoundedCornerShape(borderRadius)
                 )
-                .background(AppColors.textFieldBG)
+                .background(AppColors.textFieldBG, shape = RoundedCornerShape(borderRadius))
                 .padding(
-                    AppBoxModel().haftMainPadding(),
+                    AppBoxModel().mainPadding(),
                 ),
             verticalAlignment = Alignment.CenterVertically
         ) {
@@ -78,14 +87,16 @@ fun AppTextField(
             Column(
                 modifier = Modifier
                     .weight(1f)
-                    .background(color = Color.Red)
             ) {
                 if (title != null) {
                     Text(
                         text = title,
-                        style = AppTextStyle().small.copy(fontWeight = FontWeight.SemiBold)
+                        style = AppTextStyle().small.copy(
+                            fontWeight = FontWeight.SemiBold,
+                            color = AppColors.textFieldTitle
+                        )
                     )
-                    VerticalSpacing(value = 5.dp)
+                    VerticalSpacing(value = AppBoxModel().haftMainPadding())
                 }
 
                 BasicTextField(
@@ -114,19 +125,23 @@ fun AppTextField(
             // clear icon
             if (value.isNotEmpty()) {
                 Pressable(
-                    modifier = Modifier
-                        .size(AppIconSize().small())
-                        .clip(RoundedCornerShape(50))
-                        .background(AppColors.gray)
-                        .padding(2.5.dp),
                     onClick = { onValueChange("") }
                 ) {
-                    Icon(
-                        imageVector = Icons.Default.Close,
-                        contentDescription = "Clear text",
-                        tint = AppColors.white,
-                        modifier = Modifier.size(AppIconSize().base())
+                    Box(
+                        modifier = Modifier
+                            .size(AppIconSize().small())
+                            .clip(RoundedCornerShape(50))
+                            .background(AppColors.gray)
+                            .padding(2.5.dp),
                     )
+                    {
+                        Icon(
+                            imageVector = Icons.Default.Close,
+                            contentDescription = "Clear text",
+                            tint = AppColors.white,
+                            modifier = Modifier.size(AppIconSize().base())
+                        )
+                    }
                 }
                 Spacer(modifier = Modifier.width(5.dp))
             }
