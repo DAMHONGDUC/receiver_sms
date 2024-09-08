@@ -57,7 +57,6 @@ fun AppTextField(
     val focusRequester = remember { FocusRequester() }
     val interactionSource = remember { MutableInteractionSource() }
 
-
     Column {
         Row(
             modifier = Modifier

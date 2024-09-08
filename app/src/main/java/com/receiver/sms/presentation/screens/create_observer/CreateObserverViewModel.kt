@@ -17,15 +17,27 @@ class CreateObserverViewModel @Inject constructor(
     fun onEvent(event: ObserverFormEvent) {
         when (event) {
             is ObserverFormEvent.ObserverSenderChanged -> {
-                state = state.copy(observerSender = event.observerSender)
+                val validate = validate.isNotEmpty(event.observerSender)
+                state = state.copy(
+                    observerSender = event.observerSender,
+                    observerSenderError = if (validate) null else "Observer sender must not empty"
+                )
             }
 
             is ObserverFormEvent.BodyChanged -> {
-                state = state.copy(body = event.body)
+                val validate = validate.isNotEmpty(event.body)
+                state = state.copy(
+                    body = event.body,
+                    bodyError = if (validate) null else "Body must not empty"
+                )
             }
 
             is ObserverFormEvent.EndPointChanged -> {
-                state = state.copy(endPoint = event.endPoint)
+                val validate = validate.isNotEmpty(event.endPoint)
+                state = state.copy(
+                    endPoint = event.endPoint,
+                    endPointError = if (validate) null else "Endpoint must not empty"
+                )
             }
 
             is ObserverFormEvent.HeaderChanged -> {
@@ -43,20 +55,28 @@ class CreateObserverViewModel @Inject constructor(
     }
 
     private fun onSubmit() {
-        // validate observer sender
-        if (validate.isEmpty(state.observerSender)) {
+        if (onValidateAll()) {
+            // submit
+        }
+    }
+
+    private fun onValidateAll(): Boolean {
+        val validateObserverSender = validate.isNotEmpty(state.observerSender)
+        val validateBody = validate.isNotEmpty(state.body)
+        val validateEndpoint = validate.isNotEmpty(state.endPoint)
+
+        if (!validateObserverSender) {
             state = state.copy(observerSenderError = "Observer sender must not empty")
-
         }
-        // validate endpoint
-        if (validate.isEmpty(state.endPoint)) {
-            state = state.copy(endPointError = "Endpoint must not empty")
 
-        }
-        // validate body
-        if (validate.isEmpty(state.body)) {
+        if (!validateBody) {
             state = state.copy(bodyError = "Body must not empty")
-
         }
+
+        if (!validateEndpoint) {
+            state = state.copy(endPointError = "Endpoint must not empty")
+        }
+
+        return validateObserverSender && validateBody && validateEndpoint
     }
 }

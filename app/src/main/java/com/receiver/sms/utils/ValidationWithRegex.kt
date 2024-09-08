@@ -1,7 +1,7 @@
 package com.receiver.sms.utils
 
 class ValidationWithRegex {
-    fun isEmpty(input: String): Boolean {
-        return input.isEmpty()
+    fun isNotEmpty(input: String): Boolean {
+        return input.isNotEmpty()
     }
 }
