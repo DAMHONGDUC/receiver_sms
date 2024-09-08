@@ -45,8 +45,18 @@ class CreateObserverViewModel @Inject constructor(
     private fun onSubmit() {
         // validate observer sender
         if (validate.isEmpty(state.observerSender)) {
-            state = state.copy(observerSenderError = "Observer Sender must not empty")
-          
+            state = state.copy(observerSenderError = "Observer sender must not empty")
+
+        }
+        // validate endpoint
+        if (validate.isEmpty(state.endPoint)) {
+            state = state.copy(endPointError = "Endpoint must not empty")
+
+        }
+        // validate body
+        if (validate.isEmpty(state.body)) {
+            state = state.copy(bodyError = "Body must not empty")
+
         }
     }
 }
