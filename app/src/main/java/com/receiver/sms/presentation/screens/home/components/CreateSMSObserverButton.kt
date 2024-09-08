@@ -22,20 +22,19 @@ import com.receiver.sms.utils.resources.AppColors
 
 @Composable
 fun CreateSMSObserverButton(
-    containerHeight: Dp = 200.dp,
-    buttonHeight: Dp = 140.dp,
+    height: Dp = 120.dp,
     onClick: () -> Unit,
     borderRadius: Dp = 8.dp,
     border: Dp = 1.dp,
     elevation: Dp = 5.dp,
-    paddingHorizontal: Dp = 50.dp
+    paddingHorizontal: Dp = 70.dp
 ) {
     val roundShape = RoundedCornerShape(borderRadius)
 
     Box(
         modifier = Modifier
             .fillMaxWidth()
-            .height(containerHeight)
+            .height(height)
     ) {
         Column(
             modifier = Modifier.fillMaxSize()
@@ -57,8 +56,7 @@ fun CreateSMSObserverButton(
 
         Box(
             modifier = Modifier
-                .fillMaxWidth()
-                .height(buttonHeight)
+                .fillMaxSize()
                 .padding(horizontal = paddingHorizontal)
                 .shadow(elevation = elevation, shape = roundShape)
                 .align(Alignment.Center)

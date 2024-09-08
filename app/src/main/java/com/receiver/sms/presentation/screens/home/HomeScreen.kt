@@ -45,7 +45,7 @@ fun HomeScreen(
     ) {
         RequestSMSPermissionModal {
             Column {
-                CreateSMSObserverButton(onClick = { /*TODO*/ })
+                CreateSMSObserverButton(onClick = navToCreateObserverScreen)
                 ListSMSObserver(listSMSObserver)
             }
         }
