@@ -11,11 +11,11 @@ class AppColors private constructor() {
         val border = Color(0xFFe2e6e9)
 
         //
-        val textColor = Color(0xFF424242)
+        val textColor = Color.Black
         val topControl = Color(0xFFccc5c5)
         val textFieldBG = Color(0xFFFFFFFF)
         val textFieldPH = Color(0xFF9C9C9C)
-        val textFieldTitle = Color(0xFF858585)
+        val textFieldTitle = Color(0xFF5d5d5d)
 
         //
         val white = Color.White

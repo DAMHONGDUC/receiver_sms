@@ -92,7 +92,7 @@ fun AppTextField(
                     Text(
                         text = title,
                         style = AppTextStyle().small.copy(
-                            fontWeight = FontWeight.SemiBold,
+                            fontWeight = FontWeight.Normal,
                             color = AppColors.textFieldTitle
                         )
                     )
