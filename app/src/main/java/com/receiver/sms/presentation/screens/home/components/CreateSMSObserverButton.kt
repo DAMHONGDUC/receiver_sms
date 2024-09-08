@@ -14,6 +14,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.receiver.sms.presentation.components.Pressable
@@ -24,8 +25,10 @@ fun CreateSMSObserverButton(
     containerHeight: Dp = 200.dp,
     buttonHeight: Dp = 140.dp,
     onClick: () -> Unit,
-    borderRadius: Dp = 16.dp,
-    border: Dp = 1.dp
+    borderRadius: Dp = 8.dp,
+    border: Dp = 1.dp,
+    elevation: Dp = 5.dp,
+    paddingHorizontal: Dp = 50.dp
 ) {
     val roundShape = RoundedCornerShape(borderRadius)
 
@@ -52,23 +55,29 @@ fun CreateSMSObserverButton(
         }
 
 
-        Pressable(
-            onClick = onClick,
+        Box(
             modifier = Modifier
                 .fillMaxWidth()
                 .height(buttonHeight)
-                .padding(horizontal = 50.dp)
-                .clip(shape = roundShape)
-                .background(color = AppColors.white, shape = roundShape)
-                .border(width = border, color = AppColors.border, shape = roundShape)
+                .padding(horizontal = paddingHorizontal)
+                .shadow(elevation = elevation, shape = roundShape)
                 .align(Alignment.Center)
         ) {
-            Text(
-                text = "Create SMS Observer",
+            Pressable(
+                onClick = onClick,
                 modifier = Modifier
-                    .align(Alignment.Center)
-                    .padding(16.dp)
-            )
+                    .fillMaxSize()
+                    .clip(shape = roundShape)
+                    .background(color = AppColors.white, shape = roundShape)
+                    .border(width = border, color = AppColors.border, shape = roundShape)
+            ) {
+                Text(
+                    text = "Create SMS Observer",
+                    modifier = Modifier
+                        .align(Alignment.Center)
+                        .padding(16.dp)
+                )
+            }
         }
     }
 }
