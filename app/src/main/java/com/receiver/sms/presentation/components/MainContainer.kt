@@ -24,7 +24,7 @@ fun MainContainer(
         backgroundColor = AppColors.background,
         modifier = Modifier.fillMaxSize(),
         topBar = customTopBar ?: {
-            CustomAppBar(
+            CustomTopBar(
                 bg = AppColors.background,
                 mainColor = AppColors.textColor,
                 title = topBarTitle,
