@@ -31,7 +31,7 @@ fun HomeTopBar() {
                     contentDescription = "",
                     tint = AppColors.white,
                     modifier = Modifier
-                        .padding(5.dp)
+                        .padding(6.dp)
                         .size(AppIconSize().base())
                 )
             }
