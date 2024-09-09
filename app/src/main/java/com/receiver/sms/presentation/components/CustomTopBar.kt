@@ -20,7 +20,7 @@ import com.receiver.sms.utils.resources.AppIconSize
 import com.receiver.sms.utils.resources.AppTextStyle
 
 @Composable
-fun CustomAppBar(
+fun CustomTopBar(
     onBack: () -> Unit = {},
     enableBack: Boolean = true,
     title: String,
