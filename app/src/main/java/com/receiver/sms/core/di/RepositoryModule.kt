@@ -4,9 +4,10 @@ import com.receiver.sms.data.data_source.local.LocalDatabase
 import com.receiver.sms.data.data_source.remote.APIService
 import com.receiver.sms.data.repository.APIRepository
 import com.receiver.sms.data.repository.DBRepository
-import com.receiver.sms.domain.use_case.CallAPIAfterReceiveSMSUseCase
-import com.receiver.sms.domain.use_case.GetAllSMSObserveUseCase
-import com.receiver.sms.domain.use_case.InsertSMSObserveUseCase
+import com.receiver.sms.domain.use_case.CallAPIAfterReceiveSMSUC
+import com.receiver.sms.domain.use_case.GetAllSMSObserveBySenderUC
+import com.receiver.sms.domain.use_case.GetAllSMSObserveUC
+import com.receiver.sms.domain.use_case.InsertSMSObserveUC
 import com.receiver.sms.domain.use_case.UseCase
 import dagger.Module
 import dagger.Provides
@@ -37,9 +38,10 @@ class RepositoryModule {
     ): UseCase =
         UseCase(
             // db use case
-            getAllSMSObserveUC = GetAllSMSObserveUseCase(dbRepository),
-            insertSMSObserveUC = InsertSMSObserveUseCase(dbRepository),
+            getAllSMSObserveUC = GetAllSMSObserveUC(dbRepository),
+            insertSMSObserveUC = InsertSMSObserveUC(dbRepository),
             // api use case
-            callAPIAfterReceiveSMSUC = CallAPIAfterReceiveSMSUseCase(apiRepository),
+            callAPIAfterReceiveSMSUC = CallAPIAfterReceiveSMSUC(apiRepository, dbRepository),
+            getAllSMSObserveBySenderUC = GetAllSMSObserveBySenderUC(dbRepository)
         )
 }
