@@ -11,7 +11,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.receiver.sms.presentation.components.MainContainer
+import com.receiver.sms.presentation.components.app.MainContainer
 import com.receiver.sms.presentation.screens.home.components.CreateSMSObserverButton
 import com.receiver.sms.presentation.screens.home.components.HomeTopBar
 import com.receiver.sms.presentation.screens.home.components.ListSMSObserver
@@ -51,19 +51,6 @@ fun HomeScreen(
 
                 CreateSMSObserverButton(onClick = navToCreateObserverScreen)
                 ListSMSObserver(listSMSObserver)
-//                val listData = (0..1000).toList()
-//                val listState = rememberLazyListState()
-//
-//                LazyColumnScrollbar(
-//                    state = listState,
-//                    settings = ScrollbarSettings.Default
-//                ) {
-//                    LazyColumn(state = listState) {
-//                        items(listData.count()) {
-//                            Text("Item $it")
-//                        }
-//                    }
-//                }
             }
         }
     }

@@ -1,4 +1,4 @@
-package com.receiver.sms.presentation.components
+package com.receiver.sms.presentation.components.app
 
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.size
