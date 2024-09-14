@@ -5,7 +5,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.receiver.sms.data.data_source.local.entity.SMSObserveEntity
-import com.receiver.sms.utils.SMSDatabaseConstants
+import com.receiver.sms.utils.resources.SMSDatabaseConstants
 
 @Dao
 interface DAO {

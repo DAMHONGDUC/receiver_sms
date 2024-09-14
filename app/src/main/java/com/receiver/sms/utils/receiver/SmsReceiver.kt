@@ -8,8 +8,8 @@ import android.telephony.SmsMessage
 import android.util.Log
 import com.receiver.sms.domain.model.ReceiverSMSModel
 import com.receiver.sms.domain.use_case.UseCase
-import com.receiver.sms.utils.AppConstants
 import com.receiver.sms.utils.Helper
+import com.receiver.sms.utils.resources.AppConstants
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers

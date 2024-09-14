@@ -1,4 +1,4 @@
-package com.receiver.sms.utils
+package com.receiver.sms.utils.extension
 
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
