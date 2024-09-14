@@ -20,9 +20,9 @@ import androidx.navigation.compose.rememberNavController
 import com.dokar.sonner.rememberToasterState
 import com.receiver.sms.navigation.NavGraph
 import com.receiver.sms.presentation.components.CustomToast
-import com.receiver.sms.utils.AppConstants
 import com.receiver.sms.utils.receiver.SmsReceiver
 import com.receiver.sms.utils.resources.AppColors
+import com.receiver.sms.utils.resources.AppConstants
 import com.receiver.sms.utils.theme.AppTheme
 import kotlin.time.Duration.Companion.milliseconds
 

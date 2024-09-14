@@ -1,4 +1,4 @@
-package com.receiver.sms.utils
+package com.receiver.sms.utils.resources
 
 object AppConstants {
     const val SMS_RECEIVER_INTENT = "android.provider.Telephony.SMS_RECEIVED"

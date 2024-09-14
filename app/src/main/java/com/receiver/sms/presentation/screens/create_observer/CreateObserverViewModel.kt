@@ -11,7 +11,7 @@ import com.receiver.sms.domain.model.ToastMsgModel
 import com.receiver.sms.domain.use_case.UseCase
 import com.receiver.sms.presentation.components.observer_form.ObserverFormEvent
 import com.receiver.sms.presentation.components.observer_form.ObserverFormState
-import com.receiver.sms.utils.ValidationWithRegex
+import com.receiver.sms.utils.validation.ValidationWithRegex
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
