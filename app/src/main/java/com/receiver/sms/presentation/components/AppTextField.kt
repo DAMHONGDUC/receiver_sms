@@ -92,7 +92,7 @@ fun AppTextField(
                         text = title,
                         style = AppTextStyle().small.copy(
                             fontWeight = FontWeight.Normal,
-                            color = AppColors.textFieldTitle
+                            color = AppColors.subTextColor
                         )
                     )
                     VerticalSpacing(value = AppBoxModel().haftMainPadding())

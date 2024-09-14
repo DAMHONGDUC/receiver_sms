@@ -51,6 +51,19 @@ fun HomeScreen(
 
                 CreateSMSObserverButton(onClick = navToCreateObserverScreen)
                 ListSMSObserver(listSMSObserver)
+//                val listData = (0..1000).toList()
+//                val listState = rememberLazyListState()
+//
+//                LazyColumnScrollbar(
+//                    state = listState,
+//                    settings = ScrollbarSettings.Default
+//                ) {
+//                    LazyColumn(state = listState) {
+//                        items(listData.count()) {
+//                            Text("Item $it")
+//                        }
+//                    }
+//                }
             }
         }
     }

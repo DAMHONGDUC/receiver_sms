@@ -147,6 +147,7 @@ dependencies {
     implementation(libs.accompanist.systemuicontroller)
     implementation(libs.sonner)
     implementation(libs.androidx.material.icons.extended)
+    implementation(libs.lazycolumnscrollbar)
     // local storage
     implementation(libs.androidx.room.runtime)
     ksp(libs.androidx.room.compiler)

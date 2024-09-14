@@ -26,7 +26,7 @@ fun SMSObserverRow(sms: SMSObserveModel) {
         VerticalSpacing(value = 5.dp)
         Text(
             sms.body,
-            style = AppTextStyle().small.copy(color = AppColors.textFieldTitle)
+            style = AppTextStyle().small.copy(color = AppColors.subTextColor)
         )
     }
 }
