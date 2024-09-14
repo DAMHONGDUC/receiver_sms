@@ -8,5 +8,6 @@ interface IDBDataSource {
 
     suspend fun insertSMSObserve(smsObserveEntity: SMSObserveEntity): Boolean
 
+    suspend fun getAllSMSObserveBySender(sender: String): List<SMSObserveModel>
 }
 

@@ -23,4 +23,10 @@ class DBRepository @Inject constructor(
 
         return true
     }
+
+    override suspend fun getAllSMSObserveBySender(sender: String): List<SMSObserveModel> {
+        val listSMSObserveEntity: List<SMSObserveEntity> = dao.getAllSMSObserveBySender(sender)
+
+        return listSMSObserveEntity.map { it.toDomain() }
+    }
 }

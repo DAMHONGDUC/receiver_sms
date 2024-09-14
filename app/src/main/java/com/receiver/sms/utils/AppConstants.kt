@@ -11,9 +11,3 @@ object SMSDatabaseConstants {
     const val SMS_OBSERVE_TABLE = "SMS_OBSERVE_TABLE"
     const val RECEIVER_SMS_TABLE = "RECEIVER_SMS_TABLE"
 }
-
-object EndPoint {
-    const val BASE_URL = "https://kitec-openex-mos-dev.tgl-cloud.com"
-    const val PRODUCTS = "/PRODUCTS"
-    const val CHECK_PRODUCT_IN_ORDER = "/CHECK_PRODUCT_IN_ORDER"
-}
