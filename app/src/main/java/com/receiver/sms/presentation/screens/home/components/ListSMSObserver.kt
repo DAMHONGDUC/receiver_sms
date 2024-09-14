@@ -4,7 +4,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.Divider
 import androidx.compose.material.MaterialTheme
@@ -41,13 +41,15 @@ fun ListSMSObserver(listSMSObserver: ViewModelState<List<SMSObserveModel>>) {
                         .fillMaxSize()
                         .padding(16.dp)
                 ) {
-                    items(listSMSObserver.data) { sms ->
+                    itemsIndexed(listSMSObserver.data + listSMSObserver.data + listSMSObserver.data) { index, sms ->
                         SMSObserverRow(sms = sms)
-                        Divider(
-                            modifier = Modifier.padding(vertical = 8.dp),
-                            color = Color.Gray,
-                            thickness = 0.5.dp
-                        )
+                        if (index < (listSMSObserver.data.size * 3) - 1) {
+                            Divider(
+                                modifier = Modifier.padding(vertical = 2.dp),
+                                color = Color.Gray,
+                                thickness = 0.5.dp
+                            )
+                        }
                     }
                 }
             } else {

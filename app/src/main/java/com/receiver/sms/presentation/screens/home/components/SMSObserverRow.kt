@@ -1,19 +1,16 @@
 package com.receiver.sms.presentation.screens.home.components
 
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import com.receiver.sms.domain.model.SMSObserveModel
+import com.receiver.sms.presentation.components.spacing.VerticalSpacing
+import com.receiver.sms.utils.resources.AppColors
+import com.receiver.sms.utils.resources.AppTextStyle
 
 @Composable
 fun SMSObserverRow(sms: SMSObserveModel) {
@@ -23,16 +20,13 @@ fun SMSObserverRow(sms: SMSObserveModel) {
             .padding(vertical = 8.dp)
     ) {
         Text(
-            text = "Sender: ${sms.sender}",
-            fontWeight = FontWeight.Bold,
-            fontSize = 18.sp,
-            color = MaterialTheme.colors.primary
+            text = sms.sender,
+            style = AppTextStyle().base
         )
-        Spacer(modifier = Modifier.height(4.dp))
+        VerticalSpacing(value = 5.dp)
         Text(
-            text = sms.body,
-            fontSize = 14.sp,
-            color = Color.Gray
+            sms.body,
+            style = AppTextStyle().small.copy(color = AppColors.textFieldTitle)
         )
     }
 }

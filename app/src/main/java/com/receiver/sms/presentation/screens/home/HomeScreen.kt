@@ -48,6 +48,7 @@ fun HomeScreen(
                         .height(24.dp)
                         .background(color = AppColors.primary)
                 )
+
                 CreateSMSObserverButton(onClick = navToCreateObserverScreen)
                 ListSMSObserver(listSMSObserver)
             }
