@@ -1,10 +1,10 @@
 package com.receiver.sms.data.repository
 
-import android.util.Log
 import com.receiver.sms.data.data_source.remote.ApiService
 import com.receiver.sms.data.data_source.remote.IAPIDataSource
 import com.receiver.sms.domain.model.SMSObserveModel
 import okhttp3.OkHttpClient
+import okhttp3.ResponseBody
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Response
 import retrofit2.Retrofit
@@ -15,12 +15,13 @@ private val LOG_TAG = "APIRepositoryLOG"
 
 class APIRepository @Inject constructor(
 ) : IAPIDataSource {
-    override suspend fun callAPIAfterReceiveSMS(smsObserveModel: SMSObserveModel) {
-        Log.d(LOG_TAG, smsObserveModel.toString())
+    override suspend fun callAPIAfterReceiveSMS(smsObserveModel: SMSObserveModel): Response<ResponseBody> {
         val apiService = RetrofitInstance.create()
         // call API
-        val response: Response<Any> =
-            apiService.dynamicPost(fullUrl = smsObserveModel.endpoint, body = smsObserveModel.body)
+        val requestBody = mapOf(
+            "data" to smsObserveModel.body,
+        )
+        return apiService.dynamicPost(fullUrl = smsObserveModel.endpoint, body = requestBody)
     }
 }
 

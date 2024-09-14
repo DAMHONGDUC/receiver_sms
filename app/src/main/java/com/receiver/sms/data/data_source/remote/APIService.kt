@@ -1,5 +1,6 @@
 package com.receiver.sms.data.data_source.remote
 
+import okhttp3.ResponseBody
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.GET
@@ -14,13 +15,12 @@ interface ApiService {
         @Url fullUrl: String,
         @QueryMap queryParams: Map<String, String> = emptyMap(),
         @HeaderMap headers: Map<String, String> = emptyMap()
-    ): Response<Any>
+    ): Response<ResponseBody>
 
-    // Dynamic POST request with the full URL
     @POST
     suspend fun dynamicPost(
         @Url fullUrl: String,
         @HeaderMap headers: Map<String, String> = emptyMap(),
         @Body body: Any
-    ): Response<Any>
+    ): Response<ResponseBody>
 }

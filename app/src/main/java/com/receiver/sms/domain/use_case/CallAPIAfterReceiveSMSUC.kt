@@ -18,12 +18,36 @@ class CallAPIAfterReceiveSMSUC(
         return try {
             val listSMSObserveBySender: List<SMSObserveModel> =
                 dbRepository.getAllSMSObserveBySender(receiverSMSModel.sender)
-            
+
             coroutineScope {
                 listSMSObserveBySender.map { smsObserveModel ->
                     async {
-                        apiRepository.callAPIAfterReceiveSMS(smsObserveModel)
-                        // write log to db here if needed
+                        val response = apiRepository.callAPIAfterReceiveSMS(smsObserveModel)
+
+                        if (response.isSuccessful) {
+                            // Extract and log the details
+                            val statusCode =
+                                response.code()
+                            val responseHeaders =
+                                response.headers().toMultimap()
+                            val responseBody = response.body()
+                                ?.string()
+                            val requestUrl =
+                                response.raw().request.url.toString()
+                            val requestHeaders =
+                                response.raw().request.headers.toMultimap()
+                            val queryParamsSent =
+                                response.raw().request.url.query
+                            // Log or handle the extracted information
+                            println("Status Code: $statusCode")
+                            println("Request URL: $requestUrl")
+                            println("Query Params: $queryParamsSent")
+                            println("Request Headers: $requestHeaders")
+                            println("Response Headers: $responseHeaders")
+                            println("Response Body: $responseBody")
+                        } else {
+                            println("Error: ${response.code()} - ${response.message()}")
+                        }
                     }
                 }.awaitAll()
             }
