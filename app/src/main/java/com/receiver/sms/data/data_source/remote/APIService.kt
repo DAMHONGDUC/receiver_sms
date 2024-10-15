@@ -9,7 +9,7 @@ import retrofit2.http.POST
 import retrofit2.http.QueryMap
 import retrofit2.http.Url
 
-interface ApiService {
+interface APIService {
     @GET
     suspend fun dynamicGet(
         @Url fullUrl: String,

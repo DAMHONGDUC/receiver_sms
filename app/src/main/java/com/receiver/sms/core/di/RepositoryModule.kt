@@ -1,6 +1,7 @@
 package com.receiver.sms.core.di
 
 import com.receiver.sms.data.data_source.local.LocalDatabase
+import com.receiver.sms.data.data_source.remote.APIService
 import com.receiver.sms.data.repositories_impl.SMSObserveRepositoryImpl
 import com.receiver.sms.data.repositories_impl.SubmitSMSRepositoryImpl
 import com.receiver.sms.domain.use_case.CallAPIAfterReceiveSMSUC
@@ -25,8 +26,8 @@ class RepositoryModule {
 
     @Provides
     @Singleton
-    fun provideSubmitSMSRepository(db: LocalDatabase): SubmitSMSRepositoryImpl {
-        return SubmitSMSRepositoryImpl()
+    fun provideSubmitSMSRepository(apiService: APIService): SubmitSMSRepositoryImpl {
+        return SubmitSMSRepositoryImpl(apiService = apiService)
     }
 
     @Provides
@@ -43,7 +44,7 @@ class RepositoryModule {
             callAPIAfterReceiveSMSUC = CallAPIAfterReceiveSMSUC(
                 smsObserveRepository,
                 submitSMSRepository,
-                ),
+            ),
             getAllSMSObserveBySenderUC = GetAllSMSObserveBySenderUC(smsObserveRepository)
         )
 }
