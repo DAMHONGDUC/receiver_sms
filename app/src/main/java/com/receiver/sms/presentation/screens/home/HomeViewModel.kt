@@ -5,8 +5,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.receiver.sms.domain.model.SMSObserveModel
 import com.receiver.sms.domain.use_case.UseCase
-import com.receiver.sms.utils.view_model.ResultHandler
-import com.receiver.sms.utils.view_model.ViewModelState
+import com.receiver.sms.core.view_model.ResultHandler
+import com.receiver.sms.core.view_model.ViewModelState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow

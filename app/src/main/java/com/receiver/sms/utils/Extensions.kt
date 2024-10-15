@@ -1,4 +1,4 @@
-package com.receiver.sms.utils.extension
+package com.receiver.sms.utils
 
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
@@ -13,7 +13,7 @@ import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import com.receiver.sms.utils.resources.AppColors
+import com.receiver.sms.core.resources.AppColors
 
 @Composable
 fun Modifier.verticalScrollbar(

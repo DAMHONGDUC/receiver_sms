@@ -11,7 +11,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
-import com.receiver.sms.utils.resources.AppColors
+import com.receiver.sms.core.resources.AppColors
 
 @Composable
 fun Pressable(

@@ -5,7 +5,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.Dp
-import com.receiver.sms.utils.resources.AppBoxModel
+import com.receiver.sms.core.resources.AppBoxModel
 
 @Composable
 fun VerticalSpacing(value: Dp = AppBoxModel().spacing()) {

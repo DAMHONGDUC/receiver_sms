@@ -1,4 +1,4 @@
-package com.receiver.sms.navigation
+package com.receiver.sms.core.navigation
 
 sealed class NavRoute(val route: String) {
     object HomeScreen : NavRoute(route = "HomeScreen")

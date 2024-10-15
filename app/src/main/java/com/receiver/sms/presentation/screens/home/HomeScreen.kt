@@ -17,7 +17,7 @@ import com.receiver.sms.presentation.screens.home.components.HomeTopBar
 import com.receiver.sms.presentation.screens.home.components.ListSMSObserver
 import com.receiver.sms.presentation.screens.home.components.RequestSMSPermissionModal
 import com.receiver.sms.presentation.screens.main.MainViewModel
-import com.receiver.sms.utils.resources.AppColors
+import com.receiver.sms.core.resources.AppColors
 
 private val LOG_TAG = "HomeScreenLOG"
 

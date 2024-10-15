@@ -1,4 +1,4 @@
-package com.receiver.sms.utils.receiver
+package com.receiver.sms.utils.broadcast_receiver
 
 import android.content.BroadcastReceiver
 import android.content.Context
@@ -6,10 +6,10 @@ import android.content.Intent
 import android.os.Bundle
 import android.telephony.SmsMessage
 import android.util.Log
+import com.receiver.sms.core.resources.AppConstants
 import com.receiver.sms.domain.model.ReceiverSMSModel
 import com.receiver.sms.domain.use_case.UseCase
-import com.receiver.sms.utils.Helper
-import com.receiver.sms.utils.resources.AppConstants
+import com.receiver.sms.utils.Helpers
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -45,7 +45,7 @@ class SmsReceiver :
                                 ReceiverSMSModel(
                                     sender = sender,
                                     body = messageBody,
-                                    timestamp = Helper.getFormattedTimeStamp()
+                                    timestamp = Helpers.getFormattedTimeStamp()
                                 )
                             )
                         }

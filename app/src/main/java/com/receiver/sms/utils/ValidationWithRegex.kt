@@ -1,4 +1,4 @@
-package com.receiver.sms.utils.validation
+package com.receiver.sms.utils
 
 class ValidationWithRegex {
     fun isNotEmpty(input: String): Boolean {

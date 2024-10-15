@@ -17,8 +17,8 @@ import com.receiver.sms.domain.model.SMSObserveModel
 import com.receiver.sms.presentation.components.ListWithScrollBar
 import com.receiver.sms.presentation.components.empty.CustomEmpty
 import com.receiver.sms.presentation.components.error.CustomError
-import com.receiver.sms.utils.resources.AppColors
-import com.receiver.sms.utils.view_model.ViewModelState
+import com.receiver.sms.core.resources.AppColors
+import com.receiver.sms.core.view_model.ViewModelState
 
 @Composable
 fun ListSMSObserver(listSMSObserver: ViewModelState<List<SMSObserveModel>>) {

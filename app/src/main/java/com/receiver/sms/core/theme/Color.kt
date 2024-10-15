@@ -1,4 +1,4 @@
-package com.receiver.sms.utils.theme
+package com.receiver.sms.core.theme
 
 import androidx.compose.ui.graphics.Color
 

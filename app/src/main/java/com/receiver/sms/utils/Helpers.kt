@@ -9,7 +9,7 @@ import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
 
-class Helper {
+class Helpers {
     companion object {
         fun openAppSettings(context: Context) {
             val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)

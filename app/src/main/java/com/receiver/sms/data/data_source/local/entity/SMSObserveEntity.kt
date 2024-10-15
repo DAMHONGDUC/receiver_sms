@@ -3,7 +3,7 @@ package com.receiver.sms.data.data_source.local.entity
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.receiver.sms.domain.model.SMSObserveModel
-import com.receiver.sms.utils.resources.SMSDatabaseConstants
+import com.receiver.sms.core.resources.SMSDatabaseConstants
 
 @Entity(tableName = SMSDatabaseConstants.SMS_OBSERVE_TABLE)
 data class SMSObserveEntity(

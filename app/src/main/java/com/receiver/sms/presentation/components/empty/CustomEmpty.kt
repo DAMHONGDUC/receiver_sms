@@ -14,8 +14,8 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.receiver.sms.R
 import com.receiver.sms.presentation.components.spacing.VerticalSpacing
-import com.receiver.sms.utils.resources.AppColors
-import com.receiver.sms.utils.resources.AppTextStyle
+import com.receiver.sms.core.resources.AppColors
+import com.receiver.sms.core.resources.AppTextStyle
 
 @Composable
 fun CustomEmpty() {

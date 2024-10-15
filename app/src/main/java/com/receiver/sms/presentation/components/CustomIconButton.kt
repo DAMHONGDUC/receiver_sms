@@ -8,8 +8,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.unit.dp
-import com.receiver.sms.utils.resources.AppColors
-import com.receiver.sms.utils.resources.AppIconSize
+import com.receiver.sms.core.resources.AppColors
+import com.receiver.sms.core.resources.AppIconSize
 
 @Composable
 fun CustomIconButton(

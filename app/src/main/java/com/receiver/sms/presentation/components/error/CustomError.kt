@@ -14,8 +14,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.receiver.sms.presentation.components.spacing.HorizontalSpacing
-import com.receiver.sms.utils.resources.AppColors
-import com.receiver.sms.utils.resources.AppTextStyle
+import com.receiver.sms.core.resources.AppColors
+import com.receiver.sms.core.resources.AppTextStyle
 
 @Composable
 fun CustomError(msg: String) {

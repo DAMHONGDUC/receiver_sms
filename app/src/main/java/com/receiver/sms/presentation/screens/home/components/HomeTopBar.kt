@@ -7,8 +7,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.receiver.sms.presentation.components.CustomIconButton
 import com.receiver.sms.presentation.components.app.CustomTopBar
-import com.receiver.sms.utils.resources.AppColors
-import com.receiver.sms.utils.resources.AppTextStyle
+import com.receiver.sms.core.resources.AppColors
+import com.receiver.sms.core.resources.AppTextStyle
 
 @Composable
 fun HomeTopBar() {

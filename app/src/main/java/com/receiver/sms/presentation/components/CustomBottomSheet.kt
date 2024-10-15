@@ -16,8 +16,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
-import com.receiver.sms.utils.resources.AppBoxModel
-import com.receiver.sms.utils.resources.AppColors
+import com.receiver.sms.core.resources.AppBoxModel
+import com.receiver.sms.core.resources.AppColors
 
 @Composable
 @OptIn(ExperimentalMaterialApi::class)

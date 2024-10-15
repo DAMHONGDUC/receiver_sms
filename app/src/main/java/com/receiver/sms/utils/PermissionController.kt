@@ -1,4 +1,4 @@
-package com.receiver.sms.utils.permission_controller
+package com.receiver.sms.utils
 
 import android.Manifest
 import android.app.Activity

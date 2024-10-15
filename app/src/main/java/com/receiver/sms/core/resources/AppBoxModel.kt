@@ -1,4 +1,4 @@
-package com.receiver.sms.utils.resources
+package com.receiver.sms.core.resources
 
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp

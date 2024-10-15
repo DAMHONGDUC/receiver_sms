@@ -1,4 +1,4 @@
-package com.receiver.sms.navigation
+package com.receiver.sms.core.navigation
 
 import androidx.compose.animation.slideInHorizontally
 import androidx.compose.animation.slideOutHorizontally

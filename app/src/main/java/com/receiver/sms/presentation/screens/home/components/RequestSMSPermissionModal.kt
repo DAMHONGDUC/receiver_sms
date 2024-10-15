@@ -19,9 +19,9 @@ import com.google.accompanist.permissions.ExperimentalPermissionsApi
 import com.google.accompanist.permissions.rememberPermissionState
 import com.receiver.sms.presentation.components.CustomBottomSheet
 import com.receiver.sms.presentation.components.spacing.VerticalSpacing
-import com.receiver.sms.utils.permission_controller.PermissionController
-import com.receiver.sms.utils.resources.AppColors
-import com.receiver.sms.utils.resources.AppTextStyle
+import com.receiver.sms.utils.PermissionController
+import com.receiver.sms.core.resources.AppColors
+import com.receiver.sms.core.resources.AppTextStyle
 import kotlinx.coroutines.launch
 
 private val LOG_TAG = "RequestSMSPermissionModalLOG"

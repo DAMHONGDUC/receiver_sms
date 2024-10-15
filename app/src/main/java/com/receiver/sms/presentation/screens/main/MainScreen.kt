@@ -18,12 +18,12 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.compose.LocalLifecycleOwner
 import androidx.navigation.compose.rememberNavController
 import com.dokar.sonner.rememberToasterState
-import com.receiver.sms.navigation.NavGraph
+import com.receiver.sms.core.navigation.NavGraph
+import com.receiver.sms.core.resources.AppColors
+import com.receiver.sms.core.resources.AppConstants
+import com.receiver.sms.core.theme.AppTheme
 import com.receiver.sms.presentation.components.CustomToast
-import com.receiver.sms.utils.receiver.SmsReceiver
-import com.receiver.sms.utils.resources.AppColors
-import com.receiver.sms.utils.resources.AppConstants
-import com.receiver.sms.utils.theme.AppTheme
+import com.receiver.sms.utils.broadcast_receiver.SmsReceiver
 import kotlin.time.Duration.Companion.milliseconds
 
 @Composable

@@ -12,8 +12,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import com.receiver.sms.utils.resources.AppColors
-import com.receiver.sms.utils.resources.AppTextStyle
+import com.receiver.sms.core.resources.AppColors
+import com.receiver.sms.core.resources.AppTextStyle
 
 @Composable
 fun PrimaryButton(

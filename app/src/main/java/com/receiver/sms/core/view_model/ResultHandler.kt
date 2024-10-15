@@ -1,4 +1,4 @@
-package com.receiver.sms.utils.view_model
+package com.receiver.sms.core.view_model
 
 import retrofit2.HttpException
 import java.io.IOException
