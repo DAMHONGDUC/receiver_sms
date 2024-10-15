@@ -32,18 +32,18 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import com.receiver.sms.presentation.components.spacing.HorizontalSpacing
-import com.receiver.sms.presentation.components.spacing.VerticalSpacing
 import com.receiver.sms.core.resources.AppBoxModel
 import com.receiver.sms.core.resources.AppColors
 import com.receiver.sms.core.resources.AppIconSize
 import com.receiver.sms.core.resources.AppTextStyle
+import com.receiver.sms.presentation.components.spacing.HorizontalSpacing
+import com.receiver.sms.presentation.components.spacing.VerticalSpacing
 
 @Composable
 fun AppTextField(
     value: String,
     onValueChange: (String) -> Unit,
-    placeholder: String = "",
+    hint: String = "",
     leadingIcon: @Composable (() -> Unit)? = null,
     trailingIcon: @Composable (() -> Unit)? = null,
     isError: Boolean = false,
@@ -107,7 +107,7 @@ fun AppTextField(
                     decorationBox = { innerTextField ->
                         if (value.isEmpty()) {
                             Text(
-                                text = placeholder,
+                                text = hint,
                                 style = mainTextStyle.copy(color = AppColors.textFieldPH)
                             )
                         }

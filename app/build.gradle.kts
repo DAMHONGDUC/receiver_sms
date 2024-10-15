@@ -154,4 +154,7 @@ dependencies {
     implementation(libs.androidx.room.ktx)
     // permission
     implementation(libs.accompanist.permissions)
+    // multi language
+    implementation(libs.lyricist)
+    ksp(libs.lyricist.processor)
 }

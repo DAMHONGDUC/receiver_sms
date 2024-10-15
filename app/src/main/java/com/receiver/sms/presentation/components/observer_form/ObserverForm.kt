@@ -2,11 +2,14 @@ package com.receiver.sms.presentation.components.observer_form
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.runtime.Composable
+import cafe.adriel.lyricist.LocalStrings
 import com.receiver.sms.presentation.components.AppTextField
 import com.receiver.sms.presentation.screens.create_observe.CreateObserveViewModel
 
 @Composable
 fun ObserverForm(state: ObserverFormState, createObserverVM: CreateObserveViewModel) {
+    val tr = LocalStrings.current
+
     Column {
         AppTextField(
             value = state.observerSender,
@@ -17,8 +20,8 @@ fun ObserverForm(state: ObserverFormState, createObserverVM: CreateObserveViewMo
             },
             isError = !state.observerSenderError.isNullOrEmpty(),
             errorMessage = state.observerSenderError,
-            placeholder = "Enter your sender",
-            title = "Observer sender",
+            title = tr.observeForm.observedPhoneNumberTitle,
+            hint = tr.observeForm.observedPhoneNumberHint,
         )
         AppTextField(
             value = state.endPoint,
@@ -29,8 +32,8 @@ fun ObserverForm(state: ObserverFormState, createObserverVM: CreateObserveViewMo
             },
             isError = !state.endPointError.isNullOrEmpty(),
             errorMessage = state.endPointError,
-            placeholder = "Enter your endpoint",
-            title = "Endpoint"
+            title = tr.observeForm.endpointTitle,
+            hint = tr.observeForm.endpointHint,
         )
         AppTextField(
             value = state.body,
@@ -41,8 +44,8 @@ fun ObserverForm(state: ObserverFormState, createObserverVM: CreateObserveViewMo
             },
             isError = !state.bodyError.isNullOrEmpty(),
             errorMessage = state.bodyError,
-            placeholder = "Enter your body",
-            title = "Body"
+            title = tr.observeForm.bodyTitle,
+            hint = tr.observeForm.bodyHint,
         )
     }
 }
