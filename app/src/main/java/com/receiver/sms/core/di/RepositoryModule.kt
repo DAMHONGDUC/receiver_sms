@@ -1,8 +1,8 @@
 package com.receiver.sms.core.di
 
 import com.receiver.sms.data.data_source.local.LocalDatabase
-import com.receiver.sms.data.repository.APIRepository
-import com.receiver.sms.data.repository.DBRepository
+import com.receiver.sms.data.repositories_impl.SMSObserveRepositoryImpl
+import com.receiver.sms.data.repositories_impl.SubmitSMSRepositoryImpl
 import com.receiver.sms.domain.use_case.CallAPIAfterReceiveSMSUC
 import com.receiver.sms.domain.use_case.GetAllSMSObserveBySenderUC
 import com.receiver.sms.domain.use_case.GetAllSMSObserveUC
@@ -19,22 +19,31 @@ import javax.inject.Singleton
 class RepositoryModule {
     @Provides
     @Singleton
-    fun provideDBRepository(db: LocalDatabase): DBRepository {
-        return DBRepository(dao = db.dao)
+    fun provideSMSObserveRepository(db: LocalDatabase): SMSObserveRepositoryImpl {
+        return SMSObserveRepositoryImpl(dao = db.dao)
+    }
+
+    @Provides
+    @Singleton
+    fun provideSubmitSMSRepository(db: LocalDatabase): SubmitSMSRepositoryImpl {
+        return SubmitSMSRepositoryImpl()
     }
 
     @Provides
     @Singleton
     fun provideUseCase(
-        dbRepository: DBRepository,
-        apiRepository: APIRepository
+        smsObserveRepository: SMSObserveRepositoryImpl,
+        submitSMSRepository: SubmitSMSRepositoryImpl
     ): UseCase =
         UseCase(
             // db use case
-            getAllSMSObserveUC = GetAllSMSObserveUC(dbRepository),
-            insertSMSObserveUC = InsertSMSObserveUC(dbRepository),
+            getAllSMSObserveUC = GetAllSMSObserveUC(smsObserveRepository),
+            insertSMSObserveUC = InsertSMSObserveUC(smsObserveRepository),
             // api use case
-            callAPIAfterReceiveSMSUC = CallAPIAfterReceiveSMSUC(apiRepository, dbRepository),
-            getAllSMSObserveBySenderUC = GetAllSMSObserveBySenderUC(dbRepository)
+            callAPIAfterReceiveSMSUC = CallAPIAfterReceiveSMSUC(
+                smsObserveRepository,
+                submitSMSRepository,
+                ),
+            getAllSMSObserveBySenderUC = GetAllSMSObserveBySenderUC(smsObserveRepository)
         )
 }

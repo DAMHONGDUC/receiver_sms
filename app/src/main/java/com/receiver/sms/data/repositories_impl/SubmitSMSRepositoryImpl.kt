@@ -1,8 +1,8 @@
-package com.receiver.sms.data.repository
+package com.receiver.sms.data.repositories_impl
 
 import com.receiver.sms.data.data_source.remote.ApiService
-import com.receiver.sms.data.data_source.remote.IAPIDataSource
 import com.receiver.sms.domain.model.SMSObserveModel
+import com.receiver.sms.domain.repositories.SubmitSMSRepository
 import okhttp3.OkHttpClient
 import okhttp3.ResponseBody
 import okhttp3.logging.HttpLoggingInterceptor
@@ -13,8 +13,8 @@ import javax.inject.Inject
 
 private val LOG_TAG = "APIRepositoryLOG"
 
-class APIRepository @Inject constructor(
-) : IAPIDataSource {
+class SubmitSMSRepositoryImpl @Inject constructor(
+) : SubmitSMSRepository {
     override suspend fun callAPIAfterReceiveSMS(smsObserveModel: SMSObserveModel): Response<ResponseBody> {
         val apiService = RetrofitInstance.create()
         // call API

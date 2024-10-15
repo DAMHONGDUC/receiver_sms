@@ -1,8 +1,8 @@
 package com.receiver.sms.domain.use_case
 
-import com.receiver.sms.data.repository.DBRepository
+import com.receiver.sms.data.repositories_impl.SMSObserveRepositoryImpl
 
-class GetAllSMSObserveBySenderUC(private val dbRepository: DBRepository) {
+class GetAllSMSObserveBySenderUC(private val repository: SMSObserveRepositoryImpl) {
     suspend operator fun invoke(sender: String) =
-        dbRepository.getAllSMSObserveBySender(sender)
+        repository.getAllSMSObserveBySender(sender)
 }
