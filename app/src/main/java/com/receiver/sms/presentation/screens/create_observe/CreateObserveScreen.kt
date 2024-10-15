@@ -1,4 +1,4 @@
-package com.receiver.sms.presentation.screens.create_observer
+package com.receiver.sms.presentation.screens.create_observe
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -13,14 +13,14 @@ import com.receiver.sms.presentation.components.observer_form.ObserverForm
 import com.receiver.sms.presentation.screens.main.MainViewModel
 
 @Composable
-fun CreateObserverScreen(
+fun CreateObserveScreen(
     mainVM: MainViewModel,
-    createObserverVM: CreateObserverViewModel = hiltViewModel(),
+    createObserverVM: CreateObserveViewModel = hiltViewModel(),
     onBack: () -> Unit
 ) {
     MainContainer(
         onBack = onBack,
-        topBarTitle = "Create Observer",
+        topBarTitle = "Create SMS Observe",
     ) {
         CustomScrollView(
             modifier = Modifier

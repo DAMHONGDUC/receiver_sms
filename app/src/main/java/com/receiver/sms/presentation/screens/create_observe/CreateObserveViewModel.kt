@@ -1,4 +1,4 @@
-package com.receiver.sms.presentation.screens.create_observer
+package com.receiver.sms.presentation.screens.create_observe
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -19,7 +19,7 @@ import javax.inject.Inject
 private val LOG_TAG = "CreateObserverViewModelLOG"
 
 @HiltViewModel
-class CreateObserverViewModel @Inject constructor(
+class CreateObserveViewModel @Inject constructor(
     private val useCase: UseCase,
 ) : ViewModel() {
     private val validate: ValidationWithRegex = ValidationWithRegex()

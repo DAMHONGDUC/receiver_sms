@@ -8,7 +8,7 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.receiver.sms.presentation.screens.create_observer.CreateObserverScreen
+import com.receiver.sms.presentation.screens.create_observe.CreateObserveScreen
 import com.receiver.sms.presentation.screens.home.HomeScreen
 import com.receiver.sms.presentation.screens.main.MainViewModel
 import com.receiver.sms.presentation.screens.setting.SettingScreen
@@ -85,7 +85,7 @@ private fun addCreateObserverScreen(
     mainVM: MainViewModel
 ) {
     navGraphBuilder.composable(route = NavRoute.CreateObserverScreen.route) {
-        CreateObserverScreen(
+        CreateObserveScreen(
             mainVM = mainVM,
             onBack = { navController.popBackStack() }
         )

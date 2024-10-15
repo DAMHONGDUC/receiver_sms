@@ -3,10 +3,10 @@ package com.receiver.sms.presentation.components.observer_form
 import androidx.compose.foundation.layout.Column
 import androidx.compose.runtime.Composable
 import com.receiver.sms.presentation.components.AppTextField
-import com.receiver.sms.presentation.screens.create_observer.CreateObserverViewModel
+import com.receiver.sms.presentation.screens.create_observe.CreateObserveViewModel
 
 @Composable
-fun ObserverForm(state: ObserverFormState, createObserverVM: CreateObserverViewModel) {
+fun ObserverForm(state: ObserverFormState, createObserverVM: CreateObserveViewModel) {
     Column {
         AppTextField(
             value = state.observerSender,
