@@ -1,7 +1,5 @@
 package com.receiver.sms.core.navigation
 
-import androidx.compose.animation.slideInHorizontally
-import androidx.compose.animation.slideOutHorizontally
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.navigation.NavGraphBuilder
@@ -9,9 +7,9 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.receiver.sms.presentation.screens.create_observe.CreateObserveScreen
-import com.receiver.sms.presentation.screens.home.HomeScreen
 import com.receiver.sms.presentation.screens.main.MainViewModel
 import com.receiver.sms.presentation.screens.setting.SettingScreen
+import com.rmyhal.containertransform.HomeScreen
 
 @Composable
 fun NavGraph(navController: NavHostController, mainVM: MainViewModel) {
@@ -20,21 +18,21 @@ fun NavGraph(navController: NavHostController, mainVM: MainViewModel) {
     NavHost(
         navController = navController,
         startDestination = NavRoute.HomeScreen.route,
-        enterTransition = {
-            slideInHorizontally { it }
-        },
-        exitTransition =
-        {
-            slideOutHorizontally { it }
-        },
-        popEnterTransition = {
-            slideInHorizontally { it }
-        },
-        popExitTransition = {
-            slideOutHorizontally {
-                it
-            }
-        },
+//        enterTransition = {
+//            slideInHorizontally { it }
+//        },
+//        exitTransition =
+//        {
+//            slideOutHorizontally { it }
+//        },
+//        popEnterTransition = {
+//            slideInHorizontally { it }
+//        },
+//        popExitTransition = {
+//            slideOutHorizontally {
+//                it
+//            }
+//        },
     ) {
         addHomeScreen(
             navController,
@@ -61,8 +59,8 @@ private fun addHomeScreen(
 ) {
     navGraphBuilder.composable(route = NavRoute.HomeScreen.route) {
         HomeScreen(
-            mainVM = mainVM,
-            navToCreateObserverScreen = { navController.navigate(NavRoute.CreateObserverScreen.route) }
+//            mainVM = mainVM,
+//            navToCreateObserverScreen = { navController.navigate(NavRoute.CreateObserverScreen.route) }
         )
     }
 }
