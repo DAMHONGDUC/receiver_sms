@@ -1,7 +1,6 @@
 package com.receiver.sms.presentation.screens.home
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -20,15 +19,18 @@ import com.receiver.sms.core.resources.AppBoxModel
 import com.receiver.sms.core.resources.AppColors
 import com.receiver.sms.core.resources.AppIconSize
 import com.receiver.sms.core.resources.AppTextStyle
+import com.receiver.sms.core.resources.wGreyText
+import com.receiver.sms.presentation.components.Pressable
 import com.receiver.sms.presentation.components.spacing.HorizontalSpacing
 
 @Composable
 fun FakeSearchBar() {
-    Box(
+    Pressable(
         modifier = Modifier
             .fillMaxWidth()
-            .clip(RoundedCornerShape(100.dp))
-            .background(AppColors.textFieldBGGrey)
+            .clip(RoundedCornerShape(AppBoxModel.circleClip))
+            .background(AppColors.textFieldBGGrey),
+        onClick = {}
     )
     {
         Row(
@@ -48,8 +50,9 @@ fun FakeSearchBar() {
             HorizontalSpacing()
             Text(
                 text = "Search observe number",
-                style = AppTextStyle().xMedium
+                style = AppTextStyle().medium.wGreyText()
             )
         }
     }
+
 }

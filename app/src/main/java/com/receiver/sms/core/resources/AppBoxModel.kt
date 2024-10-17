@@ -8,4 +8,6 @@ object AppBoxModel {
     val halfPadding: Dp = 8.dp
     val spacing: Dp = 10.dp
     val halfSpacing: Dp = 5.dp
+    val circleClip: Dp = 100.dp
+    val normalClip: Dp = 5.dp
 }

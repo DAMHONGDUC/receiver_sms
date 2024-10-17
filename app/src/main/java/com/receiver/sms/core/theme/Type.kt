@@ -7,12 +7,12 @@ import androidx.compose.ui.text.font.FontWeight
 import com.receiver.sms.R
 
 val CustomFontFamily = FontFamily(
-    Font(R.font.roboto_black_900, FontWeight.Black),
-    Font(R.font.roboto_bold_700, FontWeight.Bold),
-    Font(R.font.roboto_medium_500, FontWeight.Medium),
-    Font(R.font.roboto_regular_400, FontWeight.Normal),
-    Font(R.font.roboto_light_300, FontWeight.Light),
-    Font(R.font.roboto_thin_100, FontWeight.Thin),
+    Font(R.font.open_sans_extra_bold_800, FontWeight.ExtraBold),
+    Font(R.font.open_sans_bold_700, FontWeight.Bold),
+    Font(R.font.open_sans_semi_bold_600, FontWeight.SemiBold),
+    Font(R.font.open_sans_medium_500, FontWeight.Medium),
+    Font(R.font.open_sans_regular_400, FontWeight.Normal),
+    Font(R.font.open_sans_light_300, FontWeight.Light),
 )
 val Typography = Typography(
 )
