@@ -1,4 +1,4 @@
-package com.receiver.sms.presentation.screens.home
+package com.receiver.sms.presentation.screens.home.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Row

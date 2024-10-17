@@ -20,14 +20,19 @@ fun PrimaryButton(
     text: String,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
+    contentPadding: Dp = 5.dp,
     backgroundColor: Color = AppColors.primary,
     borderRadius: Dp = 100.dp,
-    elevation: Dp = 2.dp
+    elevation: Dp = 2.dp,
+    fillMaxWidth: Boolean = false
 ) {
     Button(
         onClick = onClick,
-        modifier = modifier
-            .fillMaxWidth(),
+        modifier = if (fillMaxWidth) {
+            modifier.fillMaxWidth()
+        } else {
+            modifier
+        },
         colors = ButtonDefaults.buttonColors(
             containerColor = backgroundColor,
             contentColor = AppColors.white,
@@ -39,7 +44,7 @@ fun PrimaryButton(
     ) {
         Text(
             text = text,
-            modifier = Modifier.padding(vertical = 5.dp),
+            modifier = Modifier.padding(contentPadding),
             style = AppTextStyle().medium.copy(
                 color = AppColors.white,
                 fontWeight = FontWeight.SemiBold

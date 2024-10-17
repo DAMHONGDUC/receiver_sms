@@ -1,5 +1,7 @@
 package com.receiver.sms.presentation.screens.create_observe
 
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
@@ -14,6 +16,8 @@ import com.receiver.sms.presentation.components.observer_form.ObserverFormState
 import com.receiver.sms.utils.ValidationWithRegex
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import java.time.ZoneOffset
+import java.time.ZonedDateTime
 import javax.inject.Inject
 
 private val LOG_TAG = "CreateObserverViewModelLOG"
@@ -61,6 +65,7 @@ class CreateObserveViewModel @Inject constructor(
         }
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     fun onSubmit(onSuccess: () -> Unit, showResult: (ToastMsgModel) -> Unit) {
         if (onValidateAll()) {
             viewModelScope.launch {
@@ -75,10 +80,11 @@ class CreateObserveViewModel @Inject constructor(
                             sender = state.observerSender,
                             endpoint = state.endPoint,
                             body = state.body,
-                            header = state.header ?: ""
+                            header = state.header ?: "",
+                            createdAt = ZonedDateTime.now(ZoneOffset.UTC).toString(),
+                            updatedAt = ZonedDateTime.now(ZoneOffset.UTC).toString()
                         )
                     )
-
                     onSuccess()
 
                 } catch (e: Exception) {

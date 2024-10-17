@@ -1,5 +1,9 @@
 package com.receiver.sms.core.navigation
 
+import android.os.Build
+import androidx.annotation.RequiresApi
+import androidx.compose.animation.slideInHorizontally
+import androidx.compose.animation.slideOutHorizontally
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.navigation.NavGraphBuilder
@@ -11,6 +15,7 @@ import com.receiver.sms.presentation.screens.main.MainViewModel
 import com.receiver.sms.presentation.screens.setting.SettingScreen
 import com.rmyhal.containertransform.HomeScreen
 
+@RequiresApi(Build.VERSION_CODES.O)
 @Composable
 fun NavGraph(navController: NavHostController, mainVM: MainViewModel) {
     val coroutineScope = rememberCoroutineScope()
@@ -18,21 +23,21 @@ fun NavGraph(navController: NavHostController, mainVM: MainViewModel) {
     NavHost(
         navController = navController,
         startDestination = NavRoute.HomeScreen.route,
-//        enterTransition = {
-//            slideInHorizontally { it }
-//        },
-//        exitTransition =
-//        {
-//            slideOutHorizontally { it }
-//        },
-//        popEnterTransition = {
-//            slideInHorizontally { it }
-//        },
-//        popExitTransition = {
-//            slideOutHorizontally {
-//                it
-//            }
-//        },
+        enterTransition = {
+            slideInHorizontally { it }
+        },
+        exitTransition =
+        {
+            slideOutHorizontally { it }
+        },
+        popEnterTransition = {
+            slideInHorizontally { it }
+        },
+        popExitTransition = {
+            slideOutHorizontally {
+                it
+            }
+        },
     ) {
         addHomeScreen(
             navController,
@@ -52,6 +57,7 @@ fun NavGraph(navController: NavHostController, mainVM: MainViewModel) {
     }
 }
 
+@RequiresApi(Build.VERSION_CODES.O)
 private fun addHomeScreen(
     navController: NavHostController,
     navGraphBuilder: NavGraphBuilder,
@@ -59,8 +65,7 @@ private fun addHomeScreen(
 ) {
     navGraphBuilder.composable(route = NavRoute.HomeScreen.route) {
         HomeScreen(
-//            mainVM = mainVM,
-//            navToCreateObserverScreen = { navController.navigate(NavRoute.CreateObserverScreen.route) }
+            navToCreateObserverScreen = { navController.navigate(NavRoute.CreateObserverScreen.route) }
         )
     }
 }
@@ -77,6 +82,7 @@ private fun addSettingScreen(
     }
 }
 
+@RequiresApi(Build.VERSION_CODES.O)
 private fun addCreateObserverScreen(
     navController: NavHostController,
     navGraphBuilder: NavGraphBuilder,
@@ -84,7 +90,6 @@ private fun addCreateObserverScreen(
 ) {
     navGraphBuilder.composable(route = NavRoute.CreateObserverScreen.route) {
         CreateObserveScreen(
-            mainVM = mainVM,
             onBack = { navController.popBackStack() }
         )
     }
