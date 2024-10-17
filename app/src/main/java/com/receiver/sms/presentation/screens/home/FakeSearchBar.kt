@@ -24,9 +24,11 @@ import com.receiver.sms.presentation.components.Pressable
 import com.receiver.sms.presentation.components.spacing.HorizontalSpacing
 
 @Composable
-fun FakeSearchBar() {
+fun FakeSearchBar(
+    modifier: Modifier = Modifier
+) {
     Pressable(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxWidth()
             .clip(RoundedCornerShape(AppBoxModel.circleClip))
             .background(AppColors.textFieldBGGrey),

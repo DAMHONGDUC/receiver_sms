@@ -12,6 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.receiver.sms.core.resources.AppBoxModel
 import com.receiver.sms.core.resources.AppColors
+import com.receiver.sms.presentation.components.spacing.VerticalSpacing
 import com.receiver.sms.presentation.screens.home.FakeSearchBar
 import com.receiver.sms.presentation.screens.home.HomeFloatingButton
 import com.receiver.sms.presentation.screens.home.HomeViewModel
@@ -27,13 +28,16 @@ fun HomeScreen(modifier: Modifier = Modifier, homeVM: HomeViewModel = hiltViewMo
             Box {
                 Column(
                     modifier = modifier
-                        .fillMaxSize()
-                        .padding(
+                        .fillMaxSize(),
+                ) {
+                    FakeSearchBar(
+                        modifier = Modifier.padding(
                             horizontal = AppBoxModel.padding,
                             vertical = AppBoxModel.halfSpacing
-                        ),
-                ) {
-                    FakeSearchBar()
+                        )
+                    )
+
+                    VerticalSpacing()
 
                     ListSMSObserver(listSMSObserver)
                 }

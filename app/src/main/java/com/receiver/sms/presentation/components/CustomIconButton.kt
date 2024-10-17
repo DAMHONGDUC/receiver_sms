@@ -7,6 +7,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.receiver.sms.core.resources.AppColors
 import com.receiver.sms.core.resources.AppIconSize
@@ -15,6 +16,7 @@ import com.receiver.sms.core.resources.AppIconSize
 fun CustomIconButton(
     onClick: () -> Unit,
     imageVector: ImageVector,
+    padding: Dp = 8.dp,
     color: Color = AppColors.iconColor
 ) {
     Pressable(onClick = onClick) {
@@ -23,7 +25,7 @@ fun CustomIconButton(
             contentDescription = "",
             tint = color,
             modifier = Modifier
-                .padding(8.dp)
+                .padding(padding)
                 .size(AppIconSize.base)
         )
     }
