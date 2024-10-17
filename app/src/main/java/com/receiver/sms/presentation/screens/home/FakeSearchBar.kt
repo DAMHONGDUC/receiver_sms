@@ -45,12 +45,12 @@ fun FakeSearchBar() {
                 imageVector = Icons.Default.Menu,
                 contentDescription = null,
                 tint = AppColors.mainContent,
-                modifier = Modifier.size(AppIconSize.medium)
+                modifier = Modifier.size(AppIconSize.xBase)
             )
             HorizontalSpacing()
             Text(
                 text = "Search observe number",
-                style = AppTextStyle().medium.wGreyText()
+                style = AppTextStyle().xBase.wGreyText()
             )
         }
     }

@@ -19,7 +19,7 @@ fun HomeFloatingButton(modifier: Modifier = Modifier) {
         closeBuilder = { voidCallback ->
             FloatingActionButton(
                 onClick = { voidCallback() },
-                modifier = Modifier.size(AppIconSize.xLarge),
+                modifier = Modifier.size(AppIconSize.superLarge),
                 content = {
                     Icon(
                         painter = rememberVectorPainter(Icons.Filled.Add),

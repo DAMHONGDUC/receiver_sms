@@ -13,8 +13,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.receiver.sms.core.resources.AppColors
 import com.receiver.sms.core.resources.AppTextStyle
+import com.receiver.sms.core.resources.wGreyText
 import com.receiver.sms.domain.model.SMSObserveModel
 import com.receiver.sms.presentation.components.CustomIconButton
 import com.receiver.sms.presentation.components.spacing.VerticalSpacing
@@ -37,7 +37,7 @@ fun SMSObserverRow(sms: SMSObserveModel) {
             VerticalSpacing(value = 5.dp)
             Text(
                 sms.body,
-                style = AppTextStyle().small.copy(color = AppColors.subTextColor)
+                style = AppTextStyle().small.wGreyText()
             )
         }
 

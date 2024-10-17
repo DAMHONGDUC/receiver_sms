@@ -4,6 +4,9 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 
 object AppIconSize {
+    val superLarge: Dp = 72.dp
+    val xxxLarge: Dp = 56.dp
+    val xxLarge: Dp = 48.dp
     val xLarge: Dp = 44.dp
     val large: Dp = 40.dp
     val xMedium: Dp = 36.dp
