@@ -144,7 +144,7 @@ dependencies {
     implementation(libs.androidx.ui)
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
-    implementation(libs.accompanist.systemuicontroller)
+    implementation(libs.androidx.activity.ktx)
     implementation(libs.sonner)
     implementation(libs.androidx.material.icons.extended)
     implementation(libs.lazycolumnscrollbar)

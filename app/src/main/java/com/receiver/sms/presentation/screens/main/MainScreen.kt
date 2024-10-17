@@ -2,7 +2,10 @@ package com.receiver.sms.presentation.screens.main
 
 import android.content.BroadcastReceiver
 import android.content.IntentFilter
+import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.safeDrawing
+import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
@@ -83,7 +86,10 @@ fun MainScreen(
 
     AppTheme {
         Surface(
-            modifier = Modifier.fillMaxSize(), color = AppColors.surface
+            modifier = Modifier
+                .fillMaxSize()
+                .windowInsetsPadding(WindowInsets.safeDrawing),
+            color = AppColors.surface
         ) {
             CustomToast(state = toaster)
             NavGraph(
