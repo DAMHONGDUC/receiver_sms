@@ -24,7 +24,7 @@ fun CustomIconButton(
             tint = color,
             modifier = Modifier
                 .padding(6.dp)
-                .size(AppIconSize().base())
+                .size(AppIconSize.base)
         )
     }
 }

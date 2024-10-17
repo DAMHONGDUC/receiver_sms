@@ -73,7 +73,7 @@ fun AppTextField(
                 )
                 .background(AppColors.textFieldBG, shape = RoundedCornerShape(borderRadius))
                 .padding(
-                    AppBoxModel().mainPadding(),
+                    AppBoxModel.padding,
                 ),
             verticalAlignment = Alignment.CenterVertically
         ) {
@@ -95,7 +95,7 @@ fun AppTextField(
                             color = AppColors.subTextColor
                         )
                     )
-                    VerticalSpacing(value = AppBoxModel().haftMainPadding())
+                    VerticalSpacing(value = AppBoxModel.halfPadding)
                 }
 
                 BasicTextField(
@@ -128,7 +128,7 @@ fun AppTextField(
                 ) {
                     Box(
                         modifier = Modifier
-                            .size(AppIconSize().small())
+                            .size(AppIconSize.small)
                             .clip(RoundedCornerShape(50))
                             .background(AppColors.gray)
                             .padding(2.5.dp),
@@ -138,7 +138,7 @@ fun AppTextField(
                             imageVector = Icons.Default.Close,
                             contentDescription = "Clear text",
                             tint = AppColors.white,
-                            modifier = Modifier.size(AppIconSize().base())
+                            modifier = Modifier.size(AppIconSize.small)
                         )
                     }
                 }
@@ -160,7 +160,7 @@ fun AppTextField(
             )
         }
 
-        VerticalSpacing(value = AppBoxModel().spacing() * 2)
+        VerticalSpacing(value = AppBoxModel.spacing * 2)
     }
 }
 

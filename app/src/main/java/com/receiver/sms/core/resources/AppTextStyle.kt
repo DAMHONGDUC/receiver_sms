@@ -4,55 +4,52 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.unit.sp
 import com.receiver.sms.R
 
 class AppTextStyle {
-    private val CustomFontFamily = FontFamily(
-        Font(R.font.roboto_black_900, FontWeight.Black),
-        Font(R.font.roboto_bold_700, FontWeight.Bold),
-        Font(R.font.roboto_medium_500, FontWeight.Medium),
-        Font(R.font.roboto_regular_400, FontWeight.Normal),
-        Font(R.font.roboto_light_300, FontWeight.Light),
-        Font(R.font.roboto_thin_100, FontWeight.Thin),
+    private val mainTextStyle = TextStyle(
+        fontFamily = FontFamily(
+            Font(R.font.roboto_black_900, FontWeight.Black),
+            Font(R.font.roboto_bold_700, FontWeight.Bold),
+            Font(R.font.roboto_medium_500, FontWeight.Medium),
+            Font(R.font.roboto_regular_400, FontWeight.Normal),
+            Font(R.font.roboto_light_300, FontWeight.Light),
+            Font(R.font.roboto_thin_100, FontWeight.Thin),
+        ),
+        color = AppColors.mainContent
     )
-    val xLarge: TextStyle = TextStyle(
-        fontFamily = CustomFontFamily,
+    val xLarge: TextStyle = mainTextStyle.copy(
         fontWeight = FontWeight.Bold,
-        fontSize = 21.sp,
-        color = AppColors.textColor
+        fontSize = AppTextSize.xLarge
     )
-    val large: TextStyle = TextStyle(
-        fontFamily = CustomFontFamily,
+    val large: TextStyle = mainTextStyle.copy(
         fontWeight = FontWeight.Bold,
-        fontSize = 20.sp,
-        color = AppColors.textColor
+        fontSize = AppTextSize.large
     )
-    val medium: TextStyle = TextStyle(
-        fontFamily = CustomFontFamily,
+    val xMedium: TextStyle = mainTextStyle.copy(
         fontWeight = FontWeight.Normal,
-        fontSize = 18.sp,
-        color = AppColors.textColor
+        fontSize = AppTextSize.xMedium
     )
-    val base: TextStyle = TextStyle(
-        fontFamily = CustomFontFamily,
+    val medium: TextStyle = mainTextStyle.copy(
         fontWeight = FontWeight.Normal,
-        fontSize = 16.sp,
-        color = AppColors.textColor
+        fontSize = AppTextSize.medium
     )
-    val small: TextStyle = TextStyle(
-        fontFamily = CustomFontFamily,
+    val xBase: TextStyle = mainTextStyle.copy(
         fontWeight = FontWeight.Normal,
-        fontSize = 14.sp,
-        color = AppColors.textColor
+        fontSize = AppTextSize.xBase
     )
-    val xSmall: TextStyle = TextStyle(
-        fontFamily = CustomFontFamily,
+    val base: TextStyle = mainTextStyle.copy(
         fontWeight = FontWeight.Normal,
-        fontSize = 12.sp,
-        color = AppColors.textColor
+        fontSize = AppTextSize.base
     )
-
+    val small: TextStyle = mainTextStyle.copy(
+        fontWeight = FontWeight.Normal,
+        fontSize = AppTextSize.small
+    )
+    val xSmall: TextStyle = mainTextStyle.copy(
+        fontWeight = FontWeight.Normal,
+        fontSize = AppTextSize.xSmall
+    )
 }
 
 // Extension functions for TextStyle

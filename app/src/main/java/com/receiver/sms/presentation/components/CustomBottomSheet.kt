@@ -38,7 +38,7 @@ fun CustomBottomSheet(
                 verticalArrangement = Arrangement.Center,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(AppBoxModel().mainPadding()),
+                    .padding(AppBoxModel.padding),
             ) {
                 Box(
                     modifier = Modifier

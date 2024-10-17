@@ -8,6 +8,6 @@ import androidx.compose.ui.unit.Dp
 import com.receiver.sms.core.resources.AppBoxModel
 
 @Composable
-fun VerticalSpacing(value: Dp = AppBoxModel().spacing()) {
+fun VerticalSpacing(value: Dp = AppBoxModel.spacing) {
     Spacer(modifier = Modifier.height(value))
 }

@@ -8,6 +8,6 @@ import androidx.compose.ui.unit.Dp
 import com.receiver.sms.core.resources.AppBoxModel
 
 @Composable
-fun HorizontalSpacing(value: Dp = AppBoxModel().spacing()) {
+fun HorizontalSpacing(value: Dp = AppBoxModel.spacing) {
     Spacer(modifier = Modifier.width(value))
 }

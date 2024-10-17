@@ -36,7 +36,7 @@ fun CustomTopBar(
                 IconButton(onClick = onBack) {
                     Icon(
                         modifier = Modifier
-                            .size(AppIconSize().base()),
+                            .size(AppIconSize.base),
                         imageVector = Icons.AutoMirrored.Filled.ArrowBack,
                         contentDescription = "backIcon",
                         tint = mainColor

@@ -21,11 +21,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import com.receiver.sms.presentation.components.Pressable
-import com.receiver.sms.presentation.components.spacing.VerticalSpacing
 import com.receiver.sms.core.resources.AppColors
 import com.receiver.sms.core.resources.AppIconSize
 import com.receiver.sms.core.resources.AppTextStyle
+import com.receiver.sms.presentation.components.Pressable
+import com.receiver.sms.presentation.components.spacing.VerticalSpacing
 
 @Composable
 fun CreateSMSObserverButton(
@@ -85,7 +85,7 @@ fun CreateSMSObserverButton(
                 ) {
                     Icon(
                         Icons.Filled.Add, contentDescription = "", modifier = Modifier
-                            .size(AppIconSize().xBase())
+                            .size(AppIconSize.medium)
                     )
                     VerticalSpacing(value = 5.dp)
                     Text("Create SMS Observer", style = AppTextStyle().small)

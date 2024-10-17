@@ -12,8 +12,8 @@ import com.receiver.sms.core.resources.AppColors
 
 @Composable
 fun MainContainer(
-    paddingHorizontal: Dp = AppBoxModel().mainPadding(),
-    paddingVertical: Dp = AppBoxModel().mainPadding(),
+    paddingHorizontal: Dp = AppBoxModel.padding,
+    paddingVertical: Dp = AppBoxModel.padding,
     topBarTitle: String = "",
     onBack: () -> Unit = {},
     enableBack: Boolean = true,
@@ -26,7 +26,7 @@ fun MainContainer(
         topBar = customTopBar ?: {
             CustomTopBar(
                 bg = AppColors.background,
-                mainColor = AppColors.textColor,
+                mainColor = AppColors.mainContent,
                 title = topBarTitle,
                 onBack = onBack,
                 enableBack = enableBack
