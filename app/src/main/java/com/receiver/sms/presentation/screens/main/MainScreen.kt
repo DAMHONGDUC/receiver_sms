@@ -3,7 +3,7 @@ package com.receiver.sms.presentation.screens.main
 import android.content.BroadcastReceiver
 import android.content.IntentFilter
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material.Surface
+import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect

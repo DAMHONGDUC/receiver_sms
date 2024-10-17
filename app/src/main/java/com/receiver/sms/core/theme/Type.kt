@@ -1,6 +1,5 @@
 package com.receiver.sms.core.theme
 
-import androidx.compose.material.Typography
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
@@ -13,6 +12,4 @@ val CustomFontFamily = FontFamily(
     Font(R.font.open_sans_medium_500, FontWeight.Medium),
     Font(R.font.open_sans_regular_400, FontWeight.Normal),
     Font(R.font.open_sans_light_300, FontWeight.Light),
-)
-val Typography = Typography(
 )

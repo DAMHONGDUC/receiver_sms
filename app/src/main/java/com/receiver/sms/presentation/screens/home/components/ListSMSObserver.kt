@@ -6,19 +6,18 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.lazy.rememberLazyListState
-import androidx.compose.material.CircularProgressIndicator
-import androidx.compose.material.Divider
-import androidx.compose.material.MaterialTheme
+import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.receiver.sms.core.resources.AppColors
+import com.receiver.sms.core.view_model.ViewModelState
 import com.receiver.sms.domain.model.SMSObserveModel
 import com.receiver.sms.presentation.components.ListWithScrollBar
 import com.receiver.sms.presentation.components.empty.CustomEmpty
 import com.receiver.sms.presentation.components.error.CustomError
-import com.receiver.sms.core.resources.AppColors
-import com.receiver.sms.core.view_model.ViewModelState
 
 @Composable
 fun ListSMSObserver(listSMSObserver: ViewModelState<List<SMSObserveModel>>) {
@@ -31,7 +30,7 @@ fun ListSMSObserver(listSMSObserver: ViewModelState<List<SMSObserveModel>>) {
                     .padding(16.dp)
             ) {
                 CircularProgressIndicator(
-                    color = MaterialTheme.colors.primary
+                    color = AppColors.primary
                 )
             }
         }
@@ -51,10 +50,10 @@ fun ListSMSObserver(listSMSObserver: ViewModelState<List<SMSObserveModel>>) {
                         itemsIndexed(listSMSObserver.data) { index, sms ->
                             SMSObserverRow(sms = sms)
                             if (index < listSMSObserver.data.size - 1) {
-                                Divider(
+                                HorizontalDivider(
                                     modifier = Modifier.padding(vertical = 2.dp),
-                                    color = AppColors.gray,
-                                    thickness = 0.5.dp
+                                    thickness = 0.5.dp,
+                                    color = AppColors.gray
                                 )
                             }
                         }

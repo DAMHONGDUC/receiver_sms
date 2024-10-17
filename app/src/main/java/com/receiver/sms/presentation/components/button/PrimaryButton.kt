@@ -3,9 +3,9 @@ package com.receiver.sms.presentation.components.button
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Button
-import androidx.compose.material.ButtonDefaults
-import androidx.compose.material.Text
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -29,13 +29,13 @@ fun PrimaryButton(
         modifier = modifier
             .fillMaxWidth(),
         colors = ButtonDefaults.buttonColors(
-            backgroundColor = backgroundColor,
+            containerColor = backgroundColor,
             contentColor = AppColors.white,
-            disabledBackgroundColor = Color.Gray,
+            disabledContainerColor = Color.Gray,
             disabledContentColor = Color.LightGray,
         ),
         shape = RoundedCornerShape(borderRadius),
-        elevation = ButtonDefaults.elevation(defaultElevation = elevation)
+        elevation = ButtonDefaults.elevatedButtonElevation(defaultElevation = elevation)
     ) {
         Text(
             text = text,

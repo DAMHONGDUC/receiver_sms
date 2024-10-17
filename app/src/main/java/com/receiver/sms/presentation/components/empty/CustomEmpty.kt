@@ -5,17 +5,17 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.material.Icon
-import androidx.compose.material.Text
+import androidx.compose.material3.Icon
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.receiver.sms.R
-import com.receiver.sms.presentation.components.spacing.VerticalSpacing
 import com.receiver.sms.core.resources.AppColors
 import com.receiver.sms.core.resources.AppTextStyle
+import com.receiver.sms.presentation.components.spacing.VerticalSpacing
 
 @Composable
 fun CustomEmpty() {
